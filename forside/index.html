@@ -216,9 +216,20 @@ footer .fl{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,25
   .hero-in{animation:up .7s cubic-bezier(.16,1,.3,1) both}
   @keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 }
+/* ---- lagertoemming promo-banner (skrikende topp) ---- */
+.promo{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;background:#E4171E;color:#fff;text-align:center;padding:13px 16px;font-weight:800;font-size:1.04rem;letter-spacing:.01em;text-decoration:none;line-height:1.2}
+.promo .b{text-transform:uppercase;letter-spacing:.06em}
+.promo .pct{color:#FFDE4C}
+.promo .arw{font-weight:800}
+.promo:hover{background:#c1121a}
+@media(prefers-reduced-motion:no-preference){.promo .fire{display:inline-block;animation:promopulse 1.3s ease-in-out infinite}}
+@keyframes promopulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+@media(max-width:600px){.promo{font-size:.82rem;padding:10px 12px;gap:6px}}
 </style>
 </head>
 <body>
+
+<a class="promo" href="https://www.qualipet.no/ryddesalg/"><span class="fire">🔥</span> <span class="b">Lagertømming – alt skal ut</span> · <span class="pct">opp til 90 % rabatt</span> · <span class="arw">Se ryddesalget &rarr;</span></a>
 
 <div class="tb"><span>Leveringstid 1-5 dager</span><span>Fri frakt over 599 kr</span><span>Nisjebutikk på Ullevål, Oslo</span></div>
 
@@ -256,7 +267,7 @@ footer .fl{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,25
 </section>
 
 <!-- ===== MÅNEDENS KAMPANJE (én site-wide kampanje per måned) ===== -->
-<div class="strip"><span class="tag">Denne måneden</span><span>50 % rabatt på alt fra Sund Hundmat</span><a href="https://www.qualipet.no/kampanjer">Gå til salget</a></div>
+<div class="strip"><span class="tag">Lagertømming</span><span>Opp til 90 % rabatt på utgående varer – så langt lageret rekker</span><a href="https://www.qualipet.no/ryddesalg/">Se ryddesalget</a></div>
 
 <div class="trustline"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>4,9 stjerner fra Google-anmeldelser</span><a href="https://www.google.com/search?q=QualiPet+Oslo+anmeldelser">Les anmeldelsene</a></div>
 
