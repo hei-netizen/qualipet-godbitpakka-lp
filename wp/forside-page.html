@@ -61,6 +61,15 @@
 .qpf .qpf-hero p{color:rgba(255,255,255,.9);font-size:1.1rem;max-width:46ch;text-shadow:0 1px 12px rgba(14,28,24,.6)}
 .qpf .qpf-hero .qpf-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 .qpf .qpf-hero .qpf-ctas .qpf-cta.qpf-ghost{color:#fff}
+.qpf .qpf-hero-trust{display:inline-flex;align-items:center;gap:9px;margin-top:22px;padding:9px 16px 9px 13px;border-radius:var(--pill);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px);color:#fff;font-size:0.9rem;font-weight:500;text-shadow:none;flex-wrap:wrap}
+.qpf .qpf-hero-trust .qpf-stars{color:var(--yellow);font-size:0.95rem;letter-spacing:0.02em}
+.qpf .qpf-hero-trust b{font-weight:800}
+.qpf .qpf-hero-trust .qpf-sep{width:1px;height:14px;background:rgba(255,255,255,.35)}
+.qpf .qpf-hero-trust:hover{background:rgba(255,255,255,.16)}
+@media(max-width:760px){.qpf .qpf-hero-trust{font-size:0.84rem;gap:7px;padding:8px 13px 8px 11px;row-gap:2px}
+.qpf .qpf-hero-trust .qpf-stars{font-size:0.85rem}
+.qpf .qpf-hero-trust .qpf-sep{display:none}
+}
 @media(max-width:760px){.qpf .qpf-hero{min-height:0;padding:330px 0 44px;background-position:50% 0;background-size:auto 380px}
 .qpf .qpf-hero::before{background:linear-gradient(180deg,rgba(20,38,33,0) 0%,rgba(20,38,33,.12) 200px,rgba(20,38,33,.96) 335px,rgba(20,38,33,1) 100%)}
 .qpf .qpf-hero p{font-size:1.02rem}
@@ -157,14 +166,50 @@
 .qpf .qpf-gp .qpf-tx{padding:36px 26px}
 .qpf .qpf-gp .qpf-im{min-height:260px;order:-1}
 }
-.qpf .qpf-rev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:34px}
-@media(max-width:760px){.qpf .qpf-rev-grid{grid-template-columns:1fr;gap:12px}
+.qpf .qpf-rev-sum{display:grid;grid-template-columns:150px 1fr 1.3fr;gap:32px;align-items:center;margin:34px auto 0;max-width:960px;background:var(--sand);border:1px solid var(--line);border-radius:var(--r);padding:26px 30px}
+.qpf .qpf-rev-sum .qpf-score{text-align:center}
+.qpf .qpf-rev-sum .qpf-big{font-size:3.4rem;font-weight:800;letter-spacing:-0.04em;line-height:1;color:var(--ink)}
+.qpf .qpf-rev-sum .qpf-score .qpf-stars{font-size:1.1rem;display:block;margin:6px 0 4px}
+.qpf .qpf-rev-sum .qpf-lbl{font-size:0.82rem;color:var(--muted);font-weight:600}
+.qpf .qpf-rev-sum .qpf-bars{display:grid;gap:7px}
+.qpf .qpf-rev-sum .qpf-bar{display:grid;grid-template-columns:14px 1fr 44px;gap:10px;align-items:center;font-size:0.82rem;color:var(--muted);font-weight:600}
+.qpf .qpf-rev-sum .qpf-bar span{color:var(--ink);text-align:right}
+.qpf .qpf-rev-sum .qpf-bar i{display:block;height:9px;border-radius:var(--pill);background:var(--line);overflow:hidden}
+.qpf .qpf-rev-sum .qpf-bar b{display:block;height:100%;background:var(--gold);border-radius:var(--pill)}
+.qpf .qpf-rev-sum .qpf-bar em{font-style:normal;text-align:right}
+.qpf .qpf-rev-sum .qpf-facts p{font-size:0.98rem;color:var(--ink2);line-height:1.5}
+.qpf .qpf-rev-sum .qpf-facts p+p{margin-top:8px}
+.qpf .qpf-rev-sum .qpf-facts a{display:inline-block;margin-top:12px;font-size:0.9rem;font-weight:700;color:var(--green);text-decoration:underline;text-underline-offset:3px}
+.qpf .qpf-revcb{display:none}
+.qpf .qpf-rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+.qpf .qpf-rev{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 20px;box-shadow:var(--sh-sm);display:flex;flex-direction:column}
+.qpf .qpf-rev.qpf-more{display:none}
+.qpf #rev-more:checked~.qpf-rev-grid .qpf-rev.qpf-more{display:flex}
+.qpf .qpf-rev-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.qpf .qpf-rev .qpf-stars{font-size:0.95rem}
+.qpf .qpf-rev .qpf-src{font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-tint);border-radius:var(--pill);padding:4px 10px;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.qpf .qpf-rev .qpf-src.qpf-google{color:#3b5bdb;background:#eef1fb}
+.qpf .qpf-rev .qpf-src i{font-style:normal;font-weight:800;font-size:0.8rem;line-height:1}
+.qpf .qpf-rev p{font-size:0.98rem;color:var(--ink2);line-height:1.55;flex:1}
+.qpf .qpf-rev .qpf-by{margin-top:16px;display:flex;align-items:center;gap:11px;font-size:0.84rem;color:var(--muted);line-height:1.35}
+.qpf .qpf-rev .qpf-by .qpf-av{flex:none;width:36px;height:36px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;font-size:0.95rem;display:inline-flex;align-items:center;justify-content:center}
+.qpf .qpf-rev .qpf-by b{display:block;color:var(--ink);font-weight:700;font-size:0.92rem}
+.qpf .qpf-rev .qpf-by small{display:block;font-size:0.8rem}
+.qpf .qpf-rev .qpf-by a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.qpf .qpf-rev .qpf-by a:hover{color:var(--green)}
+.qpf .qpf-rev-moreline{text-align:center;margin-top:22px}
+.qpf .qpf-rev-btn{display:inline-flex;align-items:center;height:48px;padding:0 26px;border-radius:var(--pill);border:1.5px solid var(--green);color:var(--green);font-weight:700;font-size:0.95rem;cursor:pointer;background:var(--white)}
+.qpf .qpf-rev-btn:hover{background:var(--green-tint)}
+.qpf .qpf-rev-btn .qpf-hide{display:none}
+.qpf #rev-more:checked~.qpf-rev-moreline .qpf-rev-btn .qpf-show{display:none}
+.qpf #rev-more:checked~.qpf-rev-moreline .qpf-rev-btn .qpf-hide{display:inline}
+@media(max-width:960px){.qpf .qpf-rev-grid{grid-template-columns:repeat(2,1fr)}
 }
-.qpf .qpf-rev{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:26px 26px 22px;box-shadow:var(--sh-sm)}
-.qpf .qpf-rev .qpf-stars{margin-bottom:10px;display:block}
-.qpf .qpf-rev p{font-size:1.02rem;color:var(--ink2);line-height:1.55}
-.qpf .qpf-rev .qpf-by{margin-top:14px;font-size:0.86rem;color:var(--muted)}
-.qpf .qpf-rev .qpf-by b{color:var(--ink);font-weight:700}
+@media(max-width:760px){.qpf .qpf-rev-sum{grid-template-columns:1fr;gap:18px;padding:22px 20px;text-align:left}
+.qpf .qpf-rev-sum .qpf-score{display:flex;align-items:center;gap:14px;text-align:left}
+.qpf .qpf-rev-sum .qpf-score .qpf-stars{margin:0}
+.qpf .qpf-rev-grid{grid-template-columns:1fr;gap:12px;margin-top:18px}
+}
 .qpf .qpf-rs{display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px;background:var(--white);border:2px solid var(--yellow);border-radius:var(--r);padding:34px 40px;box-shadow:var(--sh-sm)}
 .qpf .qpf-rs h3{font-size:clamp(1.3rem,2.4vw,1.8rem);margin-bottom:6px}
 .qpf .qpf-rs p{color:var(--muted);max-width:60ch}
@@ -184,6 +229,7 @@
         <a class="qpf-cta qpf-red" href="https://www.qualipet.no/ryddesalg/">Ryddesalg – opp til 90 % <span class="qpf-arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
         <a class="qpf-cta qpf-ghost" href="https://www.qualipet.no/butikk/">Se sortimentet</a>
       </div>
+      <a class="qpf-hero-trust" href="https://www.qualipet.no/#anmeldelser"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>4,8 av 5</b><span class="qpf-sep"></span><span>1 026 anmeldelser fra verifiserte kjøp</span></a>
     </div>
   </div>
 </section>
@@ -191,7 +237,7 @@
 <!-- ===== MÅNEDENS KAMPANJE (én site-wide kampanje per måned) ===== -->
 <div class="qpf-strip"><span class="qpf-tag">Lagertømming</span><span>Opp til 90 % rabatt på utgående varer – så langt lageret rekker</span><a href="https://www.qualipet.no/ryddesalg/">Se ryddesalget</a></div>
 
-<div class="qpf-trustline"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>4,9 stjerner fra Google-anmeldelser</span><a href="https://www.google.com/search?q=QualiPet+Oslo+anmeldelser">Les anmeldelsene</a></div>
+<div class="qpf-trustline"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>4,8 av 5 · 1 026 anmeldelser fra verifiserte kjøp · 95 % gir 4 eller 5 stjerner</span><a href="#anmeldelser">Les anmeldelsene</a></div>
 
 <!-- ===== HANDLE ETTER BEHOV ===== -->
 <section class="qpf-section" id="behov" style="padding-top:44px">
@@ -275,18 +321,49 @@
 </section>
 
 <!-- ===== ANMELDELSER (verbatim fra live forside) ===== -->
-<section class="qpf-section" style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section class="qpf-section" id="anmeldelser" style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="qpf-wrap">
     <div class="qpf-center qpf-rv">
       <h2 class="qpf-h-lg">Dette sier hundeeierne</h2>
-      <p class="qpf-lede" style="margin-top:10px">4,9 stjerner fra Google-anmeldelser.</p>
+      <p class="qpf-lede" style="margin-top:10px">1 026 anmeldelser fra verifiserte kjøp. Alle kan leses på produktsidene.</p>
     </div>
+    <div class="qpf-rev-sum qpf-rv">
+      <div class="qpf-score"><div class="qpf-big">4,8</div><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><div class="qpf-lbl">av 5 mulige</div></div>
+      <div class="qpf-bars"><div class="qpf-bar"><span>5</span><i><b style="width:84.1%"></b></i><em>84 %</em></div><div class="qpf-bar"><span>4</span><i><b style="width:10.8%"></b></i><em>11 %</em></div><div class="qpf-bar"><span>3</span><i><b style="width:2.7%"></b></i><em>3 %</em></div><div class="qpf-bar"><span>2</span><i><b style="width:1.6%"></b></i><em>2 %</em></div><div class="qpf-bar"><span>1</span><i><b style="width:0.8%"></b></i><em>0,8 %</em></div></div>
+      <div class="qpf-facts"><p><b>1 026 anmeldelser</b> fra kunder som har handlet på qualipet.no – hver anmeldelse er knyttet til et faktisk kjøp.</p><p><b>95 %</b> gir 4 eller 5 stjerner.</p><a href="https://www.google.com/search?q=QualiPet+Oslo+anmeldelser">Se også anmeldelsene våre på Google →</a></div>
+    </div>
+    <input type="checkbox" id="rev-more" class="qpf-revcb">
     <div class="qpf-rev-grid qpf-rv">
-      <div class="qpf-rev"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>«Dette er en favoritt hjemme som varer lengre enn andre tyggebein.»</p><div class="qpf-by"><b>Amalie</b>, om Ostetygg</div></div>
-      <div class="qpf-rev"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>«Andebiter med trøffel har mildt sagt overrasket oss og har blitt like sikkert og effektivt som båndet på tur!»</p><div class="qpf-by"><b>Talette</b>, om Andebiter med trøffel</div></div>
-      <div class="qpf-rev"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>«Fantastisk kundeservice og spesielt god oppfølging av abonnementet på Godbitpakka! Mange trygge godbiter og tygg til de firbente.»</p><div class="qpf-by"><b>Hester</b>, om Godbitpakka</div></div>
-      <div class="qpf-rev"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>«Denne kommer jeg alltid tilbake til når jeg skal kjøpe hundegodt. Fin i størrelsen og konsistensen.»</p><div class="qpf-by"><b>Hanna</b>, om Radical Dog treningsgodbiter</div></div>
+      <div class="qpf-rev qpf-g"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src qpf-google"><i>G</i>Google-anmeldelse</span></div><p>«Dette er en favoritt hjemme som varer lengre enn andre tyggebein.»</p><div class="qpf-by"><span class="qpf-av">A</span><div><b>Amalie</b><small>om Ostetygg</small></div></div></div>
+      <div class="qpf-rev qpf-g"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src qpf-google"><i>G</i>Google-anmeldelse</span></div><p>«Andebiter med trøffel har mildt sagt overrasket oss og har blitt like sikkert og effektivt som båndet på tur!»</p><div class="qpf-by"><span class="qpf-av">T</span><div><b>Talette</b><small>om Andebiter med trøffel</small></div></div></div>
+      <div class="qpf-rev"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Begge mine hunder elsker disse. De varer også lenger enn mye annet. Anbefales!»</p><div class="qpf-by"><span class="qpf-av">N</span><div><b>Nora</b><small>23. jan. 2026 · om <a href="https://www.qualipet.no/produkt/hesteplater/">Hesteplater</a></small></div></div></div>
+      <div class="qpf-rev"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Leken er helt super for hunder som jobber med lekutvikling. Leken er enkel å gripe tak i.»</p><div class="qpf-by"><span class="qpf-av">H</span><div><b>Hege Spjelkavik</b><small>26. aug. 2026 · om <a href="https://www.qualipet.no/produkt/beverpipjeger-l/">Beverpipjeger L</a></small></div></div></div>
+      <div class="qpf-rev"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Er veldig populært her. Fikk litt rest til middagen og måtte minne ham på sitt og vent 😂.»</p><div class="qpf-by"><span class="qpf-av">L</span><div><b>Line</b><small>28. juli 2026 · om <a href="https://www.qualipet.no/produkt/radical-dog-lammepate/">Radical.dog lammepate</a></small></div></div></div>
+      <div class="qpf-rev"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Rett og slett en fantastisk dings å fylle for aktivisering. Den tar tid å tømme og samtidig er den skånsom mot tenner og tannkjøtt.»</p><div class="qpf-by"><span class="qpf-av">T</span><div><b>Tone Mathisen</b><small>16. juli 2026 · om <a href="https://www.qualipet.no/produkt/toppl-treat-toy/">Toppl Treat Toy</a></small></div></div></div>
+      <div class="qpf-rev"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Hunden min elsker disse hun blir helt gal når jeg drar frem posen dette er en 10/10😍»</p><div class="qpf-by"><span class="qpf-av">M</span><div><b>May-Christin Ugelstad</b><small>27. juni 2026 · om <a href="https://www.qualipet.no/produkt/godbiter-av-beinkraft-storfe-150gr/">Godbiter av beinkraft - Storfe 150gr</a></small></div></div></div>
+      <div class="qpf-rev"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Disse var overraskende perfekte til trening! For oss med litt større hunder f.eks er de fleste godbiter veldig små. Disse var derimot helt perfekt og hundene gikk bananas!»</p><div class="qpf-by"><span class="qpf-av">C</span><div><b>Cathrine Wick</b><small>8. feb. 2026 · om <a href="https://www.qualipet.no/produkt/crunchy-okse/">Semimyke godbiter - okse</a></small></div></div></div>
+      <div class="qpf-rev"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Har brukt kosttilskuddet i over en mnd nå og er veldig fornøyd. Har sett et par flått kravle på hunden, men ingen som har bitt seg fast. Vi er daglig i skogen og hunden ligger også mye i lyng/gress på tur. Holder til i Oslo.»</p><div class="qpf-by"><span class="qpf-av">M</span><div><b>Miriam</b><small>9. mai 2026 · om <a href="https://www.qualipet.no/produkt/proflax-keep-off-me-powder/">Proflax Keep Off Me! Powder</a></small></div></div></div>
+      <div class="qpf-rev"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Veldig populære, min favoritt hittil (vi har prøvd mange ulike tyggebein) mild mot magen og tarmene - ingen skarpe biter.»</p><div class="qpf-by"><span class="qpf-av">K</span><div><b>Kari</b><small>23. mars 2026 · om <a href="https://www.qualipet.no/produkt/braided-lamb-250gr/">Braided lamb</a></small></div></div></div>
+      <div class="qpf-rev"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Dette fungerte supert på min tispe som er plaget med innbilte svangerskap. Greide holde oppe matlysten etter løpetid og turgleden!»</p><div class="qpf-by"><span class="qpf-av">L</span><div><b>Linda</b><small>18. jan. 2026 · om <a href="https://www.qualipet.no/produkt/proflax-moody-bitch/">Proflax Moody Bitch</a></small></div></div></div>
+      <div class="qpf-rev"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Bruker disse som godbiter, og hundene elsker de. Lukter godt, og lette å dele opp i mindre biter.»</p><div class="qpf-by"><span class="qpf-av">E</span><div><b>Elisabeth</b><small>11. des. 2025 · om <a href="https://www.qualipet.no/produkt/british-beef-stew/">British Beef Stew</a></small></div></div></div>
+      <div class="qpf-rev qpf-g"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src qpf-google"><i>G</i>Google-anmeldelse</span></div><p>«Fantastisk kundeservice og spesielt god oppfølging av abonnementet på Godbitpakka! Mange trygge godbiter og tygg til de firbente.»</p><div class="qpf-by"><span class="qpf-av">H</span><div><b>Hester</b><small>om Godbitpakka</small></div></div></div>
+      <div class="qpf-rev qpf-g"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src qpf-google"><i>G</i>Google-anmeldelse</span></div><p>«Denne kommer jeg alltid tilbake til når jeg skal kjøpe hundegodt. Fin i størrelsen og konsistensen.»</p><div class="qpf-by"><span class="qpf-av">H</span><div><b>Hanna</b><small>om Radical Dog treningsgodbiter</small></div></div></div>
+      <div class="qpf-rev"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Denne er veldig kjekk! Er ganske stor så har plass til mye! Praktisk at man kan vaske den i maskin også. Den ser like fin ut, selv etter mange gangers bruk. Mye mer solid enn andre på markedet.»</p><div class="qpf-by"><span class="qpf-av">A</span><div><b>Andrea</b><small>23. nov. 2025 · om <a href="https://www.qualipet.no/produkt/slikkematte-feast-mat/">Feast Mat</a></small></div></div></div>
+      <div class="qpf-rev"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Endelig fôr som spises!!! Har en særdeles kresen hund som har flere allergier og har prøvd ‘alt’! Med British Casserole står han og slår på boksen for å få mer!!! Knall fornøyde, både hund og matmor!!»</p><div class="qpf-by"><span class="qpf-av">H</span><div><b>Hanne Guttormsen</b><small>11. okt. 2025 · om <a href="https://www.qualipet.no/produkt/british-lamb-casserole/">British Lamb Casserole</a></small></div></div></div>
+      <div class="qpf-rev"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«En av de få lekene som min Lagotto ikke dreper på to sekunder. Hun elsker denne leka og bærer den med seg rundt. Sutter på den, gnager på den og elsker at vi kaster den for henne. Er tredje vi har på 5 år, så de er ikke udødelige.»</p><div class="qpf-by"><span class="qpf-av">M</span><div><b>Monica Nordmarken</b><small>20. sep. 2025 · om <a href="https://www.qualipet.no/produkt/hurley/">Hurley</a></small></div></div></div>
+      <div class="qpf-rev"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Storfavoritten til både valp og eier — fyll den med masse godt, og frys ned, så varer den leeenge.»</p><div class="qpf-by"><span class="qpf-av">T</span><div><b>Therese-Mari Pisani</b><small>4. sep. 2025 · om <a href="https://www.qualipet.no/produkt/tux-treat-toy/">Tux Treat Toy</a></small></div></div></div>
+      <div class="qpf-rev qpf-more"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Perfekt leke som hunden min elsker ! Og ikke minst super god service og rask frakt.»</p><div class="qpf-by"><span class="qpf-av">K</span><div><b>Karoline Tvinde</b><small>4. juni 2025 · om <a href="https://www.qualipet.no/produkt/beverpipjeger-s/">Beverpipjeger S</a></small></div></div></div>
+      <div class="qpf-rev qpf-more"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Veldig god leke med lang strikk som virkelig får hunden i jaktmodus. En favoritt hos oss!»</p><div class="qpf-by"><span class="qpf-av">M</span><div><b>Maria Kilset</b><small>9. april 2025 · om <a href="https://www.qualipet.no/produkt/farskinnsjagarkampis-l/">Fårskinnsjagarkampis L</a></small></div></div></div>
+      <div class="qpf-rev qpf-more"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«En kjempefin leke for min staff. Jeg kjøpte andre leker, men han valgte skamp som sin favoritt.»</p><div class="qpf-by"><span class="qpf-av">M</span><div><b>Mona Krastev</b><small>29. mars 2025 · om <a href="https://www.qualipet.no/produkt/skamp/">Skamp</a></small></div></div></div>
+      <div class="qpf-rev qpf-more"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Dette var kjempepopulært her i heimen😍 God tyggemotstand, hyggelig å se at min gordon setter mix må jobbe litt med tyggegodteri 👍»</p><div class="qpf-by"><span class="qpf-av">H</span><div><b>Hanna</b><small>14. mars 2025 · om <a href="https://www.qualipet.no/produkt/boffelchips/">Bøffelchips</a></small></div></div></div>
+      <div class="qpf-rev qpf-more"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Enkel og bruke, og hunden elsker den! Superfin å bruke for å hydrere tørrfôr. Vår hund blir litt lei tørrforet til tider, men er alltid fornøyd når vi har på litt av denne!»</p><div class="qpf-by"><span class="qpf-av">M</span><div><b>Mari</b><small>3. feb. 2025 · om <a href="https://www.qualipet.no/produkt/bone-broth-50gr-til-1-liter-lam/">Lam - Bone Broth</a></small></div></div></div>
+      <div class="qpf-rev qpf-more"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Virkelig en favoritt her hos oss! Utrolig holdbar, holder hundene opptatt lenge, og er lett å fylle opp.»</p><div class="qpf-by"><span class="qpf-av">K</span><div><b>Karen Løkensgard</b><small>4. jan. 2025 · om <a href="https://www.qualipet.no/produkt/toppl-treat-toy/">Toppl Treat Toy</a></small></div></div></div>
+      <div class="qpf-rev qpf-more"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Perfekt å kunne velge mellom å ha den hard eller ta den i microen sånn den blir mer sprø. En favoritt her i huset!»</p><div class="qpf-by"><span class="qpf-av">N</span><div><b>Nina</b><small>16. des. 2024 · om <a href="https://www.qualipet.no/produkt/ostetygg/">Ostetygg</a></small></div></div></div>
+      <div class="qpf-rev qpf-more"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Det blir ikke bedre enn dette, mener mine 2 Rhodesian Ridgeback's ❤️ Snadder med stor S.»</p><div class="qpf-by"><span class="qpf-av">C</span><div><b>Cathrine Fjermerås</b><small>27. nov. 2024 · om <a href="https://www.qualipet.no/produkt/kaninorer-100gr/">Kaninører 100gr</a></small></div></div></div>
+      <div class="qpf-rev qpf-more"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Fine å dele opp i passende biter uten at det blir for mye søl. Og hunden elsker dem!»</p><div class="qpf-by"><span class="qpf-av">I</span><div><b>Ida</b><small>13. feb. 2025 · om <a href="https://www.qualipet.no/produkt/laksebiter-med-sotpotet/">Laksebiter med søtpotet</a></small></div></div></div>
+      <div class="qpf-rev qpf-more"><div class="qpf-rev-top"><span class="qpf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="qpf-src">Verifisert kjøp</span></div><p>«Elsker de! Fantastisk produkt med fisk og ikke bare skinn, stor favoritt.»</p><div class="qpf-by"><span class="qpf-av">J</span><div><b>Julie</b><small>9. nov. 2025 · om <a href="https://www.qualipet.no/produkt/torrfisk-av-brosme/">Tørrfisk av brosme 1,3kg</a></small></div></div></div>
     </div>
+    <div class="qpf-rev-moreline"><label for="rev-more" class="qpf-rev-btn"><span class="qpf-show">Vis flere anmeldelser</span><span class="qpf-hide">Vis færre</span></label></div>
   </div>
 </section>
 
