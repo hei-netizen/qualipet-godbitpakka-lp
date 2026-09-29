@@ -21,7 +21,6 @@
      · 41 omtaler / snitt 4,83 / 34 femmere = wc/v3/products/reviews for pakka + de 5 komponentene
      · Sitater = verbatim Woo-omtaler (navn og dato som i Woo, «Verifisert kjøp» kun der verified=true)
      · Small 329 (446) / Medium 679 (806) / XL 1 999 (2 973, utsolgt) = Store API
-     · Kaninører 100 g 99 kr, 4,89 ★ / 27 omtaler = Store API (id 25278, simple)
      · Høstsalg: kode HØST, 10 % / 15 % fra 1 000 / 20 % fra 1 500 / 25 % fra 2 000, maks 750 kr,
        t.o.m. 10.10.2026, «gjelder også varer som allerede er satt ned» = qualipet.no/hostsalg/
      · Fri frakt over 599 kr, levering 1–5 dager, «Nisjebutikk på Ullevål, Oslo» = live topbar
@@ -162,14 +161,6 @@ h1,h2,h3,h4{font-weight:800;line-height:1.1;letter-spacing:-0.02em;overflow-wrap
 .inpack li span{color:var(--muted);font-weight:500;white-space:nowrap}
 .inpack .other{font-size:0.86rem;color:var(--muted);line-height:1.5}
 
-.bump{display:flex;gap:12px;align-items:center;border:1.5px solid var(--line);background:var(--white);border-radius:14px;padding:11px 13px;margin-bottom:16px;cursor:pointer;transition:border-color .15s,background .15s}
-.bump:hover{border-color:var(--green-soft)}
-.bump.on{border-color:var(--green);background:var(--green-tint)}
-.bump input{width:20px;height:20px;accent-color:var(--green);flex:none;cursor:pointer}
-.bump img{width:52px;height:52px;border-radius:9px;object-fit:cover;flex:none;background:var(--sand)}
-.bump .bt{font-size:0.86rem;line-height:1.4;color:var(--ink2)}
-.bump .bt b{display:block;font-size:0.92rem;color:var(--ink)}
-.bump .bt em{font-style:normal;color:var(--green);font-weight:700}
 
 .assure{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;margin-top:16px;font-size:0.84rem;color:var(--ink2);font-weight:500}
 .assure li{display:flex;gap:8px;align-items:flex-start;line-height:1.4}
@@ -419,7 +410,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
 
         <div class="hostbox hs" hidden>
           Med koden <span class="code">HØST</span> i kassen: <span class="big" id="hPrice">899 kr</span>
-          <span class="nudge" id="hNudge">Du er 1 kr unna 15 % rabatt. Kryss av for kaninørene under, så får du 15 % på hele kurven.</span>
+          <span class="nudge" id="hNudge">Handler du for 1 000 kr eller mer, blir det 15 % på hele kurven.</span>
         </div>
 
         <div class="lbl">Velg pakke <a href="#sammenlign">Sammenlign pakkene</a></div>
@@ -430,11 +421,6 @@ footer a{text-decoration:underline;text-underline-offset:3px}
           <label class="pack off" data-pack="xl" aria-disabled="true"><input type="radio" name="pk" value="xl" disabled><b>XL</b><span class="p">1 999 kr</span><span class="s">Utsolgt</span></label>
         </div>
 
-        <label class="bump" id="bump">
-          <input type="checkbox" id="bumpChk">
-          <img src="https://www.qualipet.no/wp-content/uploads/2022/03/kaninorer_produktbilde.jpg" alt="Kaninører 100 g" loading="lazy">
-          <span class="bt"><b>Legg til Kaninører 100 g · +99 kr</b><span id="bumpTxt">4,9 ★ fra 27 omtaler. Lette, sprø og et godt mellommåltid.</span></span>
-        </label>
 
         <button class="cta full" id="buyBtn" type="button">
           <span class="t">Legg i handlekurven<span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
@@ -669,7 +655,6 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   var SHOP='https://www.qualipet.no';
   var ON_SHOP=location.hostname.indexOf('qualipet.no')>-1;
   var HOST_END=new Date('2026-10-10T23:59:59+02:00').getTime();
-  var BUMP={id:25278,price:99};
   var PACKS={
     s:{id:73899,name:'Small',price:329,was:446,items:[['Braided lamb','—'],['Braided bøffel','—'],['Kaninører uten pels','—'],['Kaninører med pels','—']]},
     m:{id:73900,name:'Medium',price:679,was:806,items:[['Kyllinghals 300 g','—'],['Storfe luftrør 30 cm','—'],['Storfehale 250 g','—'],['Bøffelskinn 250 g','—']]},
@@ -690,44 +675,23 @@ footer a{text-decoration:underline;text-underline-offset:3px}
 
   function render(){
     var p=PACKS[cur];
-    var bump=$('bumpChk').checked;
-    var sum=p.price+(bump?BUMP.price:0);
+    var sum=p.price;
     var save=p.was-p.price;
     $('pNow').textContent=kr(p.price);
     $('pWas').textContent=kr(p.was);
     $('pPct').textContent='−'+Math.round(save/p.was*100)+' %';
     $('mNow').textContent=kr(p.price);$('mWas').textContent=kr(p.was);$('mPct').textContent=$('pPct').textContent;
     $('pSave').innerHTML='Du sparer '+kr(save)+' <span>mot å kjøpe tyggene enkeltvis</span>';
-    $('buySub').textContent=kr(sum)+(sum>=599?' · fri frakt':'')+(bump?' · pakke + kaninører':'');
+    $('buySub').textContent=kr(sum)+(sum>=599?' · fri frakt':'');
     if(p.items){
       var h='<div class="lbl" style="margin:0 0 8px">I pakka</div><ul>';
       p.items.forEach(function(it){h+='<li>'+it[0]+'</li>'});
       $('inPack').innerHTML=h+'</ul>';
     } else { $('inPack').innerHTML=inPackHTML }
-    $('bump').classList.toggle('on',bump);
     if(hostActive()){
       var hp=hostPrice(sum);
-      $('hPrice').textContent=kr(hp)+(bump?' for begge':'');
-      var nudge='';
-      if(sum<1000){
-        var gap=1000-sum;
-        if(!bump){
-          nudge='Du er '+kr(gap)+' unna 15 % rabatt.';
-          if(p.price+BUMP.price>=1000){
-            var extra=hostPrice(p.price+BUMP.price)-hostPrice(p.price);
-            nudge+=' Kryss av for kaninørene under: da blir hele kurven 15 % billigere, og du betaler bare '+kr(extra)+' ekstra.';
-          }
-        } else { nudge='Du er '+kr(gap)+' unna 15 % rabatt.' }
-      } else if(sum<1500){
-        nudge='Du får 15 % på hele kurven.';
-      }
-      $('hNudge').textContent=nudge;
-      if(p.price+BUMP.price>=1000){
-        var ex=hostPrice(p.price+BUMP.price)-hostPrice(p.price);
-        $('bumpTxt').innerHTML='Løfter kurven over 1 000 kr, så HØST-koden gir <em>15 % på alt</em>. Du betaler bare <em>'+kr(ex)+' ekstra</em>.';
-      } else {
-        $('bumpTxt').textContent='4,9 ★ fra 27 omtaler. Lette, sprø og et godt mellommåltid.';
-      }
+      $('hPrice').textContent=kr(hostPrice(sum));
+      $('hNudge').textContent=sum>=1000?'Du får 15 % på hele kurven.':'Handler du for 1 000 kr eller mer, blir det 15 % på hele kurven.';
     }
   }
 
@@ -741,7 +705,6 @@ footer a{text-decoration:underline;text-underline-offset:3px}
       render();
     });
   });
-  $('bumpChk').addEventListener('change',render);
 
   /* Galleri */
   Array.prototype.forEach.call(document.querySelectorAll('.gal-thumbs button'),function(b){
@@ -772,7 +735,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
     return fetch('/?wc-ajax=add_to_cart',{method:'POST',credentials:'same-origin',body:body}).then(function(r){return r.json()});
   }
   $('buyBtn').addEventListener('click',function(){
-    var p=PACKS[cur];var bump=$('bumpChk').checked;var btn=this;
+    var p=PACKS[cur];var btn=this;
     if(!ON_SHOP){
       var q=new URLSearchParams();q.set('add-to-cart',p.id);
       location.href=SHOP+'/handlevogn/?'+q.toString();
@@ -780,9 +743,6 @@ footer a{text-decoration:underline;text-underline-offset:3px}
     }
     btn.classList.add('is-busy');
     ajaxAdd(p.id).then(function(res){
-      if(bump){return ajaxAdd(BUMP.id)}
-      return res;
-    }).then(function(res){
       btn.classList.remove('is-busy');btn.classList.add('is-done');
       $('cartMsg').classList.add('on');
       if(window.jQuery){
