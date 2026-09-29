@@ -1,0 +1,961 @@
+<!-- wp:html -->
+<!-- ARCADS – TYGGEPAKKE-PDP (S/M/L) for qualipet.no · Mal: page-blank.php · Kilde: ~/arcads/sites/qualipet-godbitpakka-lp/tyggepakke/index.html → wp/build_tyggepakke_wp.py -->
+<div id="qtp">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+#qtp{
+  --green:#295549; --green-deep:#1E4038; --green-soft:#3D6E5F; --green-tint:#E8EFEC;
+  --yellow:#FFDE4C; --yellow-deep:#E5C224; --yellow-tint:#FFF6CF;
+  --cream:#F0EEE4; --sand:#FAF9F7; --white:#fff;
+  --ink:#22201C; --ink2:#3A3833; --muted:#63605A; --line:#E4E0D6;
+  --orange:#EA721C; --gold:#E8A70F;
+  --f:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --r:18px; --pill:999px;
+  --sh:0 24px 54px -32px rgba(34,32,28,.42);
+  --sh-sm:0 14px 30px -22px rgba(34,32,28,.32);
+  --maxw:1180px;
+}
+#qtp *{box-sizing:border-box;margin:0;padding:0}
+#qtp{font-family:var(--f);color:var(--ink);background:var(--cream);font-size:1.02rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+#qtp img{max-width:100%;display:block}
+#qtp a{color:inherit;text-decoration:none}
+#qtp button{font-family:var(--f)}
+#qtp h1,#qtp h2,#qtp h3,#qtp h4{font-weight:800;line-height:1.1;letter-spacing:-0.02em;overflow-wrap:break-word}
+#qtp .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+#qtp .tsec{padding:72px 0}
+@media(max-width:760px){#qtp .tsec{padding:48px 0}
+#qtp .wrap{padding:0 16px}
+}
+#qtp .eyebrow{display:inline-block;font-size:0.74rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green)}
+#qtp .h-lg{font-size:clamp(1.65rem,3.2vw,2.35rem)}
+#qtp .lede{font-size:1.03rem;color:var(--muted);max-width:60ch}
+#qtp .center{text-align:center}
+#qtp .center .lede{margin-left:auto;margin-right:auto}
+#qtp .shead{margin-bottom:34px}
+#qtp .shead h2{margin:8px 0 12px}
+#qtp .cta{display:inline-flex;flex-direction:column;align-items:center;gap:2px;background:var(--green);color:#fff;border:0;cursor:pointer;border-radius:var(--pill);padding:17px 42px;line-height:1.15;transition:background .18s,transform .18s;box-shadow:0 16px 30px -18px rgba(30,64,56,.65)}
+#qtp .cta:hover{background:var(--green-deep);transform:translateY(-2px)}
+#qtp .cta .t{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1.08rem}
+#qtp .cta .arw{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.2);display:inline-flex;align-items:center;justify-content:center}
+#qtp .cta .arw svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.4}
+#qtp .cta .sub{font-size:0.76rem;font-weight:500;opacity:.88}
+#qtp .cta.full{width:100%}
+#qtp .cta.is-busy{opacity:.7;pointer-events:none}
+#qtp .cta.is-done{background:var(--green-soft)}
+#qtp .salebar{background:var(--yellow);color:var(--green-deep);text-align:center;font-size:0.9rem;font-weight:600;padding:10px 16px;line-height:1.45}
+#qtp .salebar b{font-weight:800}
+#qtp .salebar .code{display:inline-block;background:var(--green-deep);color:var(--yellow);font-weight:800;letter-spacing:.08em;border-radius:6px;padding:1px 8px;margin:0 2px}
+#qtp .salebar .cd{font-variant-numeric:tabular-nums;font-weight:800;white-space:nowrap}
+#qtp .hs[hidden]{display:none!important}
+#qtp .crumbs{font-size:0.8rem;color:var(--muted);padding:16px 0 0}
+#qtp .crumbs a:hover{color:var(--green)}
+#qtp .pdp{padding:18px 0 64px}
+#qtp .pdp-grid{display:grid;grid-template-columns:1.08fr 0.92fr;grid-template-areas:"gal head" "gal buy";gap:0 52px;align-items:start}
+#qtp .pdp-head{grid-area:head}
+#qtp .pdp-gal{grid-area:gal;position:sticky;top:18px}
+#qtp .pdp-buy{grid-area:buy}
+@media(max-width:940px){#qtp .pdp-grid{grid-template-columns:1fr;grid-template-areas:"head" "gal" "buy";gap:0}
+#qtp .pdp-gal{position:static;margin:4px 0 22px}
+}
+#qtp .gal-main{position:relative;background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;aspect-ratio:1;box-shadow:var(--sh-sm)}
+#qtp .gal-main img{width:100%;height:100%;object-fit:cover;transition:opacity .25s}
+#qtp .gal-main .savebadge{position:absolute;top:16px;left:16px;background:var(--orange);color:#fff;font-weight:800;font-size:0.86rem;letter-spacing:.01em;border-radius:var(--pill);padding:7px 14px;box-shadow:0 10px 20px -12px rgba(234,114,28,.8)}
+#qtp .gal-main .cap{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-radius:12px;padding:10px 14px;font-size:0.84rem;font-weight:600;color:var(--ink2)}
+#qtp .gal-main .cap b{color:var(--green-deep)}
+#qtp .gal-thumbs{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin-top:11px}
+#qtp .gal-thumbs button{border:2px solid transparent;background:var(--white);border-radius:12px;overflow:hidden;cursor:pointer;aspect-ratio:1;padding:0;transition:border-color .15s}
+#qtp .gal-thumbs button img{width:100%;height:100%;object-fit:cover}
+#qtp .gal-thumbs button.on{border-color:var(--green)}
+#qtp .gal-thumbs button:hover{border-color:var(--green-soft)}
+@media(max-width:480px){#qtp .gal-thumbs{gap:6px}
+#qtp .gal-thumbs button{border-radius:9px}
+}
+#qtp .stars{display:inline-flex;gap:2px;vertical-align:middle}
+#qtp .stars svg{width:16px;height:16px;fill:var(--gold)}
+#qtp .rating{display:flex;align-items:center;gap:9px;font-size:0.88rem;color:var(--muted);font-weight:500;flex-wrap:wrap}
+#qtp .rating b{color:var(--ink);font-weight:700}
+#qtp .rating a{text-decoration:underline;text-underline-offset:3px}
+#qtp .pdp-head .eyebrow{margin:14px 0 8px}
+#qtp .pdp-head h1{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:14px}
+#qtp .pdp-head h1 .hl{color:var(--orange)}
+#qtp .pdp-head .lede{font-size:1.02rem;margin-bottom:20px}
+#qtp .pricebox{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;padding:18px 0 16px;border-top:1px solid var(--line)}
+#qtp .pricebox .now{font-size:2.5rem;font-weight:800;letter-spacing:-0.035em;line-height:1;color:var(--ink)}
+#qtp .pricebox .was{font-size:1.1rem;color:var(--muted);text-decoration:line-through;padding-bottom:4px}
+#qtp .pricebox .pct{background:var(--orange);color:#fff;font-weight:800;font-size:0.82rem;border-radius:var(--pill);padding:5px 11px;margin-bottom:5px}
+#qtp .pricebox .saves{flex-basis:100%;font-size:0.92rem;font-weight:700;color:var(--green)}
+#qtp .pricebox .saves span{color:var(--muted);font-weight:500}
+#qtp .hostbox{background:var(--yellow-tint);border:1.5px dashed var(--yellow-deep);border-radius:14px;padding:13px 15px;margin-bottom:18px;font-size:0.9rem;line-height:1.5;color:var(--ink2)}
+#qtp .hostbox b{color:var(--green-deep)}
+#qtp .hostbox .code{display:inline-block;background:var(--green-deep);color:var(--yellow);font-weight:800;letter-spacing:.08em;border-radius:6px;padding:0 7px}
+#qtp .hostbox .big{font-size:1.02rem;font-weight:800;color:var(--green-deep)}
+#qtp .hostbox .nudge{display:block;margin-top:5px;font-size:0.84rem;color:var(--muted)}
+#qtp .lbl{font-size:0.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin:4px 0 10px;display:flex;justify-content:space-between;align-items:baseline}
+#qtp .lbl a{font-size:0.8rem;text-transform:none;letter-spacing:0;font-weight:600;color:var(--green);text-decoration:underline;text-underline-offset:3px}
+#qtp .packs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}
+#qtp .pack{position:relative;border:1.5px solid var(--line);background:var(--white);border-radius:13px;padding:13px 6px 11px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s}
+#qtp .pack:hover{border-color:var(--green-soft)}
+#qtp .pack b{display:block;font-size:0.95rem;font-weight:800}
+#qtp .pack .p{display:block;font-size:0.84rem;font-weight:700;color:var(--ink2);margin-top:2px}
+#qtp .pack .s{display:block;font-size:0.72rem;color:var(--muted);margin-top:1px}
+#qtp .pack .tag{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-size:0.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:var(--pill);padding:3px 8px;white-space:nowrap}
+#qtp .pack.on{border-color:var(--green);border-width:2px;background:var(--green-tint);padding:12px 5px 10px}
+#qtp .pack.off{opacity:.5;cursor:not-allowed}
+#qtp .pack.off .s{color:var(--orange);font-weight:600}
+#qtp .pack input{position:absolute;opacity:0;pointer-events:none}
+@media(max-width:420px){#qtp .pack b{font-size:0.86rem}
+#qtp .pack .p{font-size:0.78rem}
+#qtp .pack .s{font-size:0.66rem}
+}
+#qtp .inpack{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:16px}
+#qtp .inpack ul{list-style:none;display:grid;gap:6px}
+#qtp .inpack li{display:flex;justify-content:space-between;gap:10px;font-size:0.88rem;font-weight:600}
+#qtp .inpack li span{color:var(--muted);font-weight:500;white-space:nowrap}
+#qtp .inpack .other{font-size:0.86rem;color:var(--muted);line-height:1.5}
+#qtp .assure{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;margin-top:16px;font-size:0.84rem;color:var(--ink2);font-weight:500}
+#qtp .assure li{display:flex;gap:8px;align-items:flex-start;line-height:1.4}
+#qtp .assure svg{width:17px;height:17px;flex:none;stroke:var(--green);fill:none;stroke-width:2.2;margin-top:1px}
+#qtp .assure .stock{color:var(--green);font-weight:700}
+#qtp .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#3BAA6E;box-shadow:0 0 0 3px rgba(59,170,110,.2);margin:6px 1px 0 4px;flex:none}
+#qtp .pay{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+#qtp .pay span{font-size:0.7rem;font-weight:800;letter-spacing:.02em;border:1px solid var(--line);background:var(--white);border-radius:6px;padding:4px 9px;color:var(--ink2)}
+#qtp .cartmsg{display:none;margin-top:12px;font-size:0.88rem;font-weight:600;color:var(--green-deep);background:var(--green-tint);border-radius:10px;padding:10px 13px}
+#qtp .cartmsg a{text-decoration:underline}
+#qtp .cartmsg.on{display:block}
+#qtp .mprice{display:none;align-items:center;gap:10px;margin:-2px 0 12px}
+#qtp .mprice b{font-size:1.5rem;font-weight:800;letter-spacing:-.03em}
+#qtp .mprice s{color:var(--muted);font-size:0.95rem}
+#qtp .mprice span{background:var(--orange);color:#fff;font-weight:800;font-size:0.74rem;border-radius:999px;padding:3px 9px}
+@media(max-width:940px){#qtp .mprice{display:flex}
+#qtp .pdp-head .lede{font-size:0.95rem;margin-bottom:6px}
+}
+@media(max-width:640px){#qtp .salebar .xm,#qtp .pack .xm{display:none}
+}
+#qtp .pdp-head h1{font-size:clamp(1.9rem,3.2vw,2.45rem)!important}
+#qtp .trust{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+#qtp .trust .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+#qtp .trust .it{display:flex;gap:12px;align-items:center;padding:22px 18px;border-right:1px solid var(--line)}
+#qtp .trust .it:last-child{border-right:0}
+#qtp .trust .ic{width:42px;height:42px;border-radius:50%;background:var(--green-tint);display:flex;align-items:center;justify-content:center;flex:none}
+#qtp .trust .ic svg{width:21px;height:21px;stroke:var(--green);fill:none;stroke-width:2}
+#qtp .trust b{display:block;font-size:0.95rem;line-height:1.25}
+#qtp .trust small{display:block;font-size:0.8rem;color:var(--muted);line-height:1.35;margin-top:2px}
+@media(max-width:900px){#qtp .trust .wrap{grid-template-columns:1fr 1fr}
+#qtp .trust .it:nth-child(2){border-right:0}
+#qtp .trust .it:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media(max-width:480px){#qtp .trust .it{padding:16px 10px;gap:9px}
+#qtp .trust .ic{width:34px;height:34px}
+#qtp .trust .ic svg{width:17px;height:17px}
+#qtp .trust b{font-size:0.84rem}
+#qtp .trust small{font-size:0.72rem}
+}
+#qtp .pains{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:980px;margin:0 auto}
+#qtp .pain{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;box-shadow:var(--sh-sm)}
+#qtp .pain .x{grid-row:span 2;width:30px;height:30px;border-radius:50%;background:#FBE9DD;color:var(--orange);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.95rem;margin-top:1px}
+#qtp .pain b{font-size:1.02rem;line-height:1.35}
+#qtp .pain p{font-size:0.9rem;color:var(--muted);line-height:1.55}
+#qtp .pain p em{font-style:normal;color:var(--green-deep);font-weight:600}
+@media(max-width:760px){#qtp .pains{grid-template-columns:1fr}
+}
+#qtp .stackwrap{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+#qtp .vstack{max-width:720px;margin:0 auto;background:var(--white);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 30px 70px -46px rgba(26,21,19,.5)}
+#qtp .vrow{display:grid;grid-template-columns:64px 1fr auto;gap:16px;align-items:center;padding:16px 22px;border-bottom:1px solid var(--line)}
+#qtp .vrow img{width:64px;height:64px;border-radius:12px;object-fit:cover;background:var(--sand)}
+#qtp .vrow .ico{width:64px;height:64px;border-radius:12px;background:var(--green-tint);display:flex;align-items:center;justify-content:center}
+#qtp .vrow .ico svg{width:28px;height:28px;stroke:var(--green);fill:none;stroke-width:2}
+#qtp .vrow .txt b{display:block;font-size:1.0rem;letter-spacing:-.01em;line-height:1.3}
+#qtp .vrow .txt span{display:block;font-size:0.85rem;color:var(--muted);margin-top:3px;line-height:1.45}
+#qtp .vrow .val{text-align:right;font-size:0.76rem;color:var(--muted);white-space:nowrap}
+#qtp .vrow .val b{display:block;font-size:1.02rem;color:var(--ink);letter-spacing:-.01em}
+#qtp .vrow .val b.inc{color:var(--green)}
+#qtp .vsum{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;background:var(--sand);border-bottom:1px solid var(--line);font-weight:700}
+#qtp .vsum .amt{font-size:1.2rem;text-decoration:line-through;color:var(--muted)}
+#qtp .vfinal{background:var(--green-deep);color:#fff;padding:26px 22px 28px;text-align:center}
+#qtp .vfinal .l{font-size:0.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--yellow)}
+#qtp .vfinal .p{font-size:3rem;font-weight:800;letter-spacing:-0.04em;line-height:1.05;margin:4px 0 8px}
+#qtp .vfinal .save{display:inline-block;background:var(--yellow);color:var(--green-deep);font-weight:800;border-radius:var(--pill);padding:6px 16px;font-size:0.95rem}
+#qtp .vfinal .per{display:block;font-size:0.84rem;color:rgba(255,255,255,.78);margin-top:12px}
+#qtp .vfoot{font-size:0.78rem;color:var(--muted);text-align:center;max-width:620px;margin:14px auto 0;line-height:1.5}
+@media(max-width:560px){#qtp .vrow{grid-template-columns:50px 1fr auto;gap:12px;padding:14px 14px}
+#qtp .vrow img,#qtp .vrow .ico{width:50px;height:50px}
+#qtp .vrow .txt b{font-size:0.92rem}
+#qtp .vrow .txt span{font-size:0.8rem}
+#qtp .vfinal .p{font-size:2.5rem}
+#qtp .vsum{padding:14px}
+}
+#qtp .ladder{max-width:980px;margin:0 auto;display:grid;gap:12px}
+#qtp .rung{display:grid;grid-template-columns:76px 1.25fr 1fr 0.7fr 0.7fr 0.8fr;gap:18px;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:12px 20px 12px 12px;box-shadow:var(--sh-sm)}
+#qtp .rung img{width:76px;height:76px;border-radius:12px;object-fit:cover}
+#qtp .rung .nm b{display:block;font-size:1.0rem;line-height:1.25}
+#qtp .rung .nm span{display:block;font-size:0.8rem;color:var(--muted);margin-top:2px}
+#qtp .meter{display:flex;gap:4px}
+#qtp .meter i{flex:1;height:8px;border-radius:4px;background:var(--line)}
+#qtp .meter i.f{background:var(--green)}
+#qtp .meter.x i.f{background:var(--orange)}
+#qtp .mlbl.na{color:var(--muted);font-weight:600;margin-top:0}
+#qtp .mlbl{font-size:0.76rem;font-weight:700;color:var(--ink2);margin-top:6px}
+#qtp .kv small{display:block;font-size:0.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+#qtp .kv b{font-size:1.02rem;white-space:nowrap}
+#qtp .ladder .hdrrow{background:none;border:0;box-shadow:none;padding:0 20px 0 12px;font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+@media(max-width:860px){#qtp .ladder .hdrrow{display:none}
+#qtp .rung{grid-template-columns:64px 1fr 1fr 1fr;grid-template-areas:"img nm nm nm" "img mtr mtr mtr" "pr pr ft lk";gap:10px 14px;padding:14px}
+#qtp .rung img{grid-area:img;width:64px;height:64px;align-self:start}
+#qtp .rung .nm{grid-area:nm}
+#qtp .rung .mt{grid-area:mtr}
+#qtp .rung .pr{grid-area:pr}
+#qtp .rung .ft{grid-area:ft}
+#qtp .rung .lk{grid-area:lk}
+#qtp .kv{background:var(--sand);border-radius:10px;padding:8px 10px}
+}
+#qtp .ladnote{max-width:760px;margin:22px auto 0;font-size:0.88rem;color:var(--muted);text-align:center;line-height:1.6}
+#qtp .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1040px;margin:0 auto}
+#qtp .stepc{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:24px 22px;box-shadow:var(--sh-sm)}
+#qtp .stepc .n{width:36px;height:36px;border-radius:50%;background:var(--yellow);color:var(--green-deep);font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+#qtp .stepc b{display:block;font-size:1.06rem;margin-bottom:6px;line-height:1.3}
+#qtp .stepc p{font-size:0.9rem;color:var(--muted);line-height:1.55}
+#qtp .safety{max-width:1040px;margin:16px auto 0;display:flex;gap:12px;align-items:flex-start;background:var(--green-tint);border:1px solid #CFE0D9;border-radius:14px;padding:14px 18px;font-size:0.88rem;color:var(--ink2);line-height:1.55}
+#qtp .safety svg{width:20px;height:20px;flex:none;stroke:var(--green);fill:none;stroke-width:2.2;margin-top:1px}
+@media(max-width:760px){#qtp .steps{grid-template-columns:1fr}
+}
+#qtp .rsum{display:flex;align-items:center;justify-content:center;gap:26px;flex-wrap:wrap;margin-bottom:30px}
+#qtp .rsum .big{font-size:3.4rem;font-weight:800;letter-spacing:-0.04em;line-height:1}
+#qtp .rsum .stars svg{width:22px;height:22px}
+#qtp .rsum .meta{font-size:0.9rem;color:var(--muted);margin-top:6px}
+#qtp .dist{display:grid;gap:5px;min-width:230px}
+#qtp .dist div{display:grid;grid-template-columns:22px 1fr 26px;gap:8px;align-items:center;font-size:0.78rem;color:var(--muted);font-weight:600}
+#qtp .dist i{display:block;height:7px;border-radius:4px;background:var(--line);overflow:hidden}
+#qtp .dist i s{display:block;height:100%;background:var(--gold)}
+#qtp .revs{columns:3 300px;column-gap:16px}
+#qtp .rev{break-inside:avoid;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:20px 20px 18px;margin-bottom:16px;box-shadow:var(--sh-sm)}
+#qtp .rev .stars svg{width:14px;height:14px}
+#qtp .rev q{display:block;font-size:0.95rem;line-height:1.55;margin:10px 0 14px;quotes:none;color:var(--ink2)}
+#qtp .rev .who{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:0.8rem;color:var(--muted);flex-wrap:wrap}
+#qtp .rev .who b{color:var(--ink);font-weight:700}
+#qtp .rev .ver{display:inline-flex;align-items:center;gap:4px;color:var(--green);font-weight:600}
+#qtp .rev .ver svg{width:13px;height:13px;stroke:var(--green);fill:none;stroke-width:3}
+#qtp .rev .prod{display:inline-block;font-size:0.72rem;font-weight:700;background:var(--green-tint);color:var(--green-deep);border-radius:var(--pill);padding:3px 10px;margin-top:10px}
+#qtp .rev.hi{background:var(--green-deep);border-color:var(--green-deep)}
+#qtp .rev.hi q{color:#fff;font-size:1.02rem}
+#qtp .rev.hi .who,#qtp .rev.hi .who b{color:rgba(255,255,255,.85)}
+#qtp .rev.hi .ver{color:var(--yellow)}
+#qtp .rev.hi .ver svg{stroke:var(--yellow)}
+#qtp .rev.hi .prod{background:var(--yellow);color:var(--green-deep)}
+#qtp .cmp{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:stretch}
+#qtp .cmpc{position:relative;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:22px 18px 20px;display:flex;flex-direction:column;box-shadow:var(--sh-sm)}
+#qtp .cmpc.win{border:2px solid var(--green);box-shadow:var(--sh);transform:translateY(-6px)}
+#qtp .cmpc .tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-size:0.66rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;border-radius:var(--pill);padding:4px 11px;white-space:nowrap}
+#qtp .cmpc h3{font-size:1.2rem}
+#qtp .cmpc .pr{margin:8px 0 2px;font-size:1.6rem;font-weight:800;letter-spacing:-0.03em}
+#qtp .cmpc .pr s{font-size:0.9rem;font-weight:500;color:var(--muted);margin-left:6px}
+#qtp .cmpc .sv{font-size:0.84rem;font-weight:700;color:var(--green)}
+#qtp .cmpc ul{list-style:none;margin:14px 0 18px;display:grid;gap:6px;font-size:0.86rem;color:var(--ink2);flex:1}
+#qtp .cmpc li{display:flex;gap:7px;line-height:1.4}
+#qtp .cmpc li:before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green-soft);flex:none;margin-top:7px}
+#qtp .cmpc .go{display:block;text-align:center;border:1.5px solid var(--green);color:var(--green);font-weight:700;font-size:0.9rem;border-radius:var(--pill);padding:10px 12px;transition:.15s}
+#qtp .cmpc .go:hover{background:var(--green);color:#fff}
+#qtp .cmpc.win .go{background:var(--green);color:#fff}
+#qtp .cmpc.sel{outline:3px solid var(--yellow);outline-offset:3px}
+#qtp .cmpc.off{opacity:.62}
+#qtp .cmpc.off .go{border-color:var(--line);color:var(--muted);pointer-events:none}
+@media(max-width:900px){#qtp .cmp{grid-template-columns:1fr 1fr}
+#qtp .cmpc.win{transform:none}
+}
+@media(max-width:480px){#qtp .cmp{gap:10px}
+#qtp .cmpc{padding:18px 13px 14px}
+#qtp .cmpc h3{font-size:1.02rem}
+#qtp .cmpc .pr{font-size:1.3rem}
+#qtp .cmpc .pr s{display:block;margin:0}
+#qtp .cmpc ul{font-size:0.78rem}
+}
+#qtp .about{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--green-deep);border-radius:26px;overflow:hidden;color:#fff}
+#qtp .about .img{min-height:380px;background:url('img/hund-sti.jpg') 58% 50%/cover no-repeat}
+#qtp .about .tx{padding:52px 48px}
+#qtp .about .eyebrow{color:var(--yellow)}
+#qtp .about h2{margin:10px 0 16px;color:#fff}
+#qtp .about p{color:rgba(255,255,255,.84);font-size:0.98rem;margin-bottom:14px;max-width:48ch}
+#qtp .about ul{list-style:none;display:grid;gap:10px;margin-top:20px}
+#qtp .about li{display:flex;gap:10px;font-weight:600;font-size:0.95rem}
+#qtp .chk{width:22px;height:22px;border-radius:50%;background:var(--yellow);display:inline-flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+#qtp .chk svg{width:12px;height:12px;stroke:var(--green-deep);fill:none;stroke-width:3.2}
+@media(max-width:860px){#qtp .about{grid-template-columns:1fr}
+#qtp .about .img{min-height:240px}
+#qtp .about .tx{padding:34px 22px}
+}
+#qtp .faq{max-width:780px;margin:0 auto;display:grid;gap:10px}
+#qtp .faq details{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+#qtp .faq summary{list-style:none;cursor:pointer;padding:18px 54px 18px 20px;font-weight:700;font-size:1.0rem;position:relative;line-height:1.4}
+#qtp .faq summary::-webkit-details-marker{display:none}
+#qtp .faq summary:after{content:'+';position:absolute;right:20px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;background:var(--green-tint);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:1.15rem;font-weight:700;transition:transform .2s}
+#qtp .faq details[open] summary:after{transform:translateY(-50%) rotate(45deg)}
+#qtp .faq .a{padding:0 20px 18px;font-size:0.93rem;color:var(--ink2);line-height:1.65}
+#qtp .faq .a p+p{margin-top:8px}
+#qtp .endcta{background:var(--white);border:1px solid var(--line);border-radius:26px;padding:48px 28px;text-align:center;box-shadow:var(--sh)}
+#qtp .endcta h2{margin:10px auto 12px;max-width:22ch}
+#qtp .endcta .lede{margin:0 auto 26px}
+#qtp .endcta .pk{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+#qtp .endcta .pk img{width:64px;height:64px;border-radius:12px;object-fit:cover;border:1px solid var(--line)}
+#qtp .endcta .fine{display:block;font-size:0.8rem;color:var(--muted);margin-top:14px}
+#qtp .revs .rev:nth-child(n+7){display:none}
+#qtp .revs.all .rev{display:block}
+#qtp .morebtn{margin-top:6px;background:none;border:1.5px solid var(--green);color:var(--green);font-weight:700;font-size:0.92rem;border-radius:999px;padding:11px 26px;cursor:pointer}
+#qtp .morebtn:hover{background:var(--green);color:#fff}
+#qtp .ladder+.ladnote+.safety,#qtp .ladnote+.safety{margin-top:14px}
+@media(max-width:940px){#qtp .mprice{display:none!important}
+#qtp .pdp-head .lede{display:none}
+}
+@media(max-width:760px){#qtp .revs .rev:nth-child(n+4){display:none}
+#qtp .revs.all .rev{display:block}
+#qtp .vrow img+.txt span{display:none}
+#qtp .vrow{padding:12px 14px}
+#qtp .rung{grid-template-columns:48px 1fr 1fr 1fr!important;grid-template-areas:"img nm nm nm" "img mtr mtr mtr" "img pr ft lk"!important;gap:6px 10px!important;padding:12px!important}
+#qtp .rung img{width:48px!important;height:48px!important}
+#qtp .kv{background:none!important;padding:0!important}
+#qtp .kv small{font-size:0.62rem}
+#qtp .kv b{font-size:0.9rem}
+#qtp .ladder{gap:8px}
+#qtp .shead{margin-bottom:22px}
+#qtp .rsum{gap:14px;margin-bottom:20px}
+#qtp .rsum .big{font-size:2.6rem}
+#qtp .dist{display:none}
+#qtp .assure{grid-template-columns:1fr;gap:6px}
+#qtp .pricebox{padding-top:4px}
+#qtp .cmpc.off{display:none}
+#qtp .cmp{grid-template-columns:1fr 1fr 1fr;gap:8px}
+#qtp .cmpc{padding:18px 10px 12px}
+#qtp .cmpc ul{display:none}
+#qtp .cmpc .go{font-size:0.8rem;padding:9px 6px}
+#qtp #lHead+.lede{display:none}
+#qtp .rung .meter{max-width:160px}
+}
+#qtp .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+#qtp .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){#qtp .reveal{opacity:1;transform:none;transition:none}
+}
+
+#qtp{display:block;width:100%}
+#qtp .tsec{display:block;min-height:0;align-items:initial}
+#qtp h1,#qtp h2,#qtp h3,#qtp h4{font-family:var(--f)!important;text-transform:none!important;margin:0;color:inherit;letter-spacing:-0.02em}
+#qtp .pdp-head h1 .hl,#qtp h1 .hl{color:var(--orange)}
+#qtp .about h2{color:#fff}
+#qtp,#qtp p,#qtp a,#qtp span,#qtp li,#qtp label,#qtp button,#qtp summary,#qtp q,#qtp small,#qtp b{font-family:var(--f)}
+#qtp p{margin:0}
+#qtp ul{margin:0;padding:0}
+#qtp li{margin:0}
+#qtp img{margin:0;display:block;max-width:100%}
+#qtp a:not(.cta):not(.go){color:inherit}
+#qtp button{margin:0;text-transform:none;letter-spacing:0;min-height:0;font-weight:inherit;line-height:1.15;box-shadow:none}
+#qtp .cta{color:#fff!important;border-radius:999px;min-height:0;text-transform:none;margin:0}
+#qtp .cta:hover{color:#fff!important}
+#qtp .gal-thumbs button{border-radius:12px;padding:0;background:#fff}
+#qtp .morebtn{border-radius:999px;color:var(--green)}
+#qtp .morebtn:hover{color:#fff}
+#qtp label{font-weight:inherit;font-size:inherit;margin:0;display:block}
+#qtp input[type=radio]{position:absolute;opacity:0;pointer-events:none;margin:0}
+#qtp details{margin:0;padding:0}
+#qtp details summary{list-style:none;margin:0}
+#qtp details summary::-webkit-details-marker{display:none}
+#qtp q:before,#qtp q:after{content:none}
+#qtp .pricebox .was,#qtp .cmpc .pr s{text-decoration:line-through}
+#qtp .stars svg{display:inline-block}
+
+</style>
+<div class="tmain">
+<!-- ================= PDP HERO ================= -->
+<section class="pdp" id="kjop">
+  <div class="wrap">
+    <div class="crumbs"><a href="https://www.qualipet.no/">Hjem</a> / <a href="https://www.qualipet.no/product-category/tygg/">Tygg</a> / <span id="crumb">Tyggepakke Large</span></div>
+    <div class="pdp-grid" style="margin-top:16px">
+
+      <div class="pdp-head">
+        <div class="rating">
+          <span class="stars" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg></span>
+          <span><b id="rRate">4,8 av 5</b> · <a href="#omtaler" id="rCount">41 omtaler</a> av tyggene i pakka</span>
+        </div>
+        <span class="eyebrow" id="hEyebrow">Tyggepakke Large · 1,75 kg</span>
+        <h1 id="hTitle">Fem ulike tygg i én pakke. <span class="hl">Du sparer 546&nbsp;kr.</span></h1>
+        <div class="mprice" style="margin-bottom:20px"><b id="mNow">999 kr</b><s id="mWas">1 545 kr</s><span id="mPct">−35 %</span></div>
+      </div>
+
+      <div class="pdp-gal">
+        <div class="gal-main">
+          <img id="galImg" src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-pakke.jpg" alt="Tyggepakke Large – alle fem tyggene i pakka" width="1200" height="1200">
+          <span class="savebadge" id="galBadge">Spar 546 kr</span>
+          <div class="cap" id="galCap"><b>Hele pakka:</b> 5 tygg, 1,75 kg, 999 kr</div>
+        </div>
+        <div class="gal-thumbs" id="galThumbs" role="tablist" aria-label="Produktbilder">
+          <button class="on" data-src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-pakke.jpg" data-cap="<b>Hele pakka:</b> 5 tygg, 1,75 kg, 999 kr" aria-label="Hele pakka"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-pakke.jpg" alt="" loading="lazy"></button>
+          <button data-src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-okseplater.jpg" data-cap="<b>Okseplater 500 g:</b> ekstra hard, 91 % protein" aria-label="Okseplater"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-okseplater.jpg" alt="" loading="lazy"></button>
+          <button data-src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-kamel.jpg" data-cap="<b>Kamelgumlere 500 g:</b> 100 % kamel, 88 % protein" aria-label="Kamelgumlere"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-kamel.jpg" alt="" loading="lazy"></button>
+          <button data-src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-pannelapp.jpg" data-cap="<b>Storfe pannelapp 250 g:</b> hard, 92,6 % protein" aria-label="Storfe pannelapp"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-pannelapp.jpg" alt="" loading="lazy"></button>
+          <button data-src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-lam.jpg" data-cap="<b>Braided lamb 250 g:</b> flettet, middels hard" aria-label="Braided lamb"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-lam.jpg" alt="" loading="lazy"></button>
+          <button data-src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-boffel.jpg" data-cap="<b>Braided bøffel 250 g:</b> 1 % fett, lite lukt" aria-label="Braided bøffel"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-boffel.jpg" alt="" loading="lazy"></button>
+        </div>
+      </div>
+
+      <div class="pdp-buy">
+        <div class="pricebox">
+          <span class="now" id="pNow">999 kr</span>
+          <span class="was" id="pWas">1 545 kr</span>
+          <span class="pct" id="pPct">−35 %</span>
+          <span class="saves" id="pSave">Du sparer 546 kr <span>mot å kjøpe tyggene enkeltvis</span></span>
+        </div>
+
+        <div class="hostbox hs" hidden>
+          Med koden <span class="code">HØST</span> i kassen: <span class="big" id="hPrice">899 kr</span>
+          <span class="nudge" style="margin-top:2px">Slutter om <b data-cd>–</b></span><span class="nudge" id="hNudge">Handler du for 1 000 kr eller mer, blir det 15 % på hele kurven.</span>
+        </div>
+
+        <div class="lbl">Velg pakke <a href="#sammenlign">Sammenlign pakkene</a></div>
+        <div class="packs" role="radiogroup" aria-label="Velg pakke">
+          <label class="pack" data-pack="s"><input type="radio" name="pk" value="s"><b>Small</b><span class="p">329 kr</span><span class="s">4 tygg</span></label>
+          <label class="pack" data-pack="m"><input type="radio" name="pk" value="m"><b>Medium</b><span class="p">679 kr</span><span class="s">4 tygg</span></label>
+          <label class="pack on" data-pack="l"><span class="tag">Størst rabatt</span><input type="radio" name="pk" value="l" checked><b>Large</b><span class="p">999 kr</span><span class="s">5 tygg<span class="xm"> · −35 %</span></span></label>
+          <label class="pack off" data-pack="xl" aria-disabled="true"><input type="radio" name="pk" value="xl" disabled><b>XL</b><span class="p">1 999 kr</span><span class="s">Utsolgt</span></label>
+        </div>
+
+
+        <button class="cta full" id="buyBtn" type="button">
+          <span class="t">Legg i handlekurven<span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+          <span class="sub" id="buySub">999 kr · fri frakt</span>
+        </button>
+        <div class="cartmsg" id="cartMsg">Lagt i handlekurven. <a href="https://www.qualipet.no/betaling/">Gå til kassen</a></div>
+
+        <ul class="assure">
+          <li><span class="dot"></span><span class="stock">På lager</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Fri frakt, levering 1–5 dager</li>
+          <li><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Vanlig rett til retur og bytte</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>100 % naturlig, ingen tilsetninger</li>
+        </ul>
+        <div class="pay" aria-label="Betalingsmåter"><span>Vipps</span><span>Klarna</span><span>Visa</span><span>Mastercard</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VERDISTABEL ================= -->
+<section class="tsec stackwrap" id="innhold">
+  <div class="wrap">
+    <div class="shead center reveal">
+      <span class="eyebrow">Dette får du</span>
+      <h2 class="h-lg" id="vHead">Kjøpt hver for seg: 1&nbsp;545 kr.<br>I pakka: 999 kr.</h2>
+    </div>
+    <div class="vstack reveal" id="vstack">
+      <div class="vrow"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-okseplater.jpg" alt="Okseplater" loading="lazy"><div class="txt"><b>Okseplater uten pels · 500 g</b><span>Ekstra hard. Den brede formen gir ekstra lang tyggetid. 91 % protein.</span></div><div class="val">Verdi<b>399 kr</b></div></div>
+      <div class="vrow"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-kamel.jpg" alt="Kamelgumlere" loading="lazy"><div class="txt"><b>Kamelgumlere · 500 g</b><span>Svært hardt tygg av 100 % kamel. 88 % protein, 2,9 % fett.</span></div><div class="val">Verdi<b>399 kr</b></div></div>
+      <div class="vrow"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-lam.jpg" alt="Braided lamb" loading="lazy"><div class="txt"><b>Braided lamb · 250 g</b><span>Skånsomt tørket og flettet. Ujevnhetene bidrar til å rense tennene.</span></div><div class="val">Verdi<b>349 kr</b></div></div>
+      <div class="vrow"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-pannelapp.jpg" alt="Storfe pannelapp" loading="lazy"><div class="txt"><b>Storfe pannelapp · 250 g</b><span>100 % storfe med hard tekstur. Hele 92,6 % protein.</span></div><div class="val">Verdi<b>199 kr</b></div></div>
+      <div class="vrow"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-boffel.jpg" alt="Braided bøffel" loading="lazy"><div class="txt"><b>Braided bøffel · 250 g</b><span>100 % bøffelskinn. Lite fett, lite lukt, lang tyggemoro.</span></div><div class="val">Verdi<b>199 kr</b></div></div>
+      <div class="vrow"><span class="ico"><svg viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span><div class="txt"><b>Fri frakt</b><span>Pakka er over 599 kr, så frakten er alltid gratis. Levering 1–5 dager.</span></div><div class="val">&nbsp;<b class="inc">Inkludert</b></div></div>
+      <div class="vrow"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8S10 3 7.5 3 5 5.5 7 7s5 1 5 1 3 .5 5-1-1-4-2.5-4S12 8 12 8z"/></svg></span><div class="txt"><b>Gave på neste ordre</b><span>Ny i kundeklubben? Denne ordren pluss én omtale gir deg et gratis produkt til en verdi av 50 kr på neste ordre.*</span></div><div class="val">&nbsp;<b class="inc">Bonus</b></div></div>
+      <div class="vsum"><span>Samlet verdi</span><span class="amt">1&nbsp;545 kr</span></div>
+      <div class="vfinal">
+        <div class="l">Din pris</div>
+        <div class="p">999 kr</div>
+        <span class="save">Du sparer 546 kr på tyggene</span>
+        <span class="per">1,75 kg tygg · ca. 57 kr per 100 g (88 kr kjøpt enkeltvis)</span>
+      </div>
+    </div>
+    <p class="vfoot">*Nivå 1 i kundeklubben: legg inn én ordre og skriv én omtale mens du er logget inn, så får du et gratis produkt til en verdi av 50 kr på neste ordre. Omtaler godkjennes manuelt.</p>
+    <div class="center reveal" style="margin-top:30px"><a href="#kjop" class="cta"><span class="t">Ja, gi meg pakka<span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><span class="sub" id="vCtaSub">999 kr · verdi 1 545 kr</span></a></div>
+  </div>
+</section>
+
+<!-- ================= OMTALER ================= -->
+<section class="tsec stackwrap" id="omtaler">
+  <div class="wrap">
+    <div class="shead center reveal">
+      <span class="eyebrow">Hva kundene sier</span>
+      <h2 class="h-lg">«Stor stas», sier kundene</h2>
+    </div>
+    <div class="rsum reveal" id="rsum">
+      <div class="center">
+        <div class="big">4,8</div>
+        <span class="stars" aria-label="4,8 av 5 stjerner"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg></span>
+        <div class="meta">41 omtaler av tyggene i pakka</div>
+      </div>
+      <div class="dist" aria-hidden="true">
+        <div><span>5★</span><i><s style="width:83%"></s></i><span>34</span></div>
+        <div><span>4★</span><i><s style="width:17%"></s></i><span>7</span></div>
+        <div><span>3★</span><i><s style="width:0"></s></i><span>0</span></div>
+        <div><span>2★</span><i><s style="width:0"></s></i><span>0</span></div>
+        <div><span>1★</span><i><s style="width:0"></s></i><span>0</span></div>
+      </div>
+    </div>
+    <div class="revs" id="revs">
+      <div class="rev hi reveal"><span class="stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg></span><q>Kjapp og enkel måte å bestille tygg på. Alle faller i smak hos snuppa vår. Noen varer lenger enn andre.</q><div class="who"><b>Jeanette</b><span class="ver"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Verifisert kjøp</span></div><span class="prod">Tyggepakke Large</span></div>
+      <div class="rev reveal"><span class="stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg></span><q>Jentene mine elsker denne, og den varer en stund. Dette er gårdshunder som vanligvis "sluker" tyggebein, men dette var midt i blinken :)</q><div class="who"><b>Camilla Therese</b><span class="ver"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Verifisert kjøp</span></div><span class="prod">Braided bøffel</span></div>
+      <div class="rev reveal"><span class="stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg></span><q>Veldig fornøyd med disse. Min dsg er en hard tygger der mye går ned på relativt kort tid. Disse er harde, varer lenge og hunden liker de veldig godt</q><div class="who"><b>Mariann</b><span class="ver"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Verifisert kjøp</span></div><span class="prod">Kamelgumlere</span></div>
+      <div class="rev reveal"><span class="stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg></span><q>Har en hund som er sensitiv i magen, disse fungerer kjempefint! Han elsker disse.</q><div class="who"><b>Liv Kristin</b><span class="ver"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Verifisert kjøp</span></div><span class="prod">Braided lamb</span></div>
+      <div class="rev reveal"><span class="stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg></span><q>Veldig fornøyd med denne, varer lenge, stor stas!</q><div class="who"><b>Tika23</b><span class="ver"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Verifisert kjøp</span></div><span class="prod">Okseplater</span></div>
+      <div class="rev reveal"><span class="stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg></span><q>Disse er helt supre for mine litt større hunder! De stinker ikke, varer vesentlig lenger enn mye annet og hundene digger det.</q><div class="who"><b>Cathrine</b><span></span></div><span class="prod">Storfe pannelapp</span></div>
+      <div class="rev reveal"><span class="stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg></span><q>Min blandingshund på 22 kg elsker disse! Passe harde for henne, andre tyggeting sluker hun, med disse må hun faktisk jobbe litt :)</q><div class="who"><b>Hanna</b><span class="ver"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Verifisert kjøp</span></div><span class="prod">Kamelgumlere</span></div>
+      <div class="rev reveal"><span class="stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg></span><q>Veldig populære, min favoritt hittil (vi har prøvd mange ulike tyggebein) mild mot magen og tarmene - ingen skarpe biter</q><div class="who"><b>Kari</b><span class="ver"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Verifisert kjøp</span></div><span class="prod">Braided lamb</span></div>
+      <div class="rev reveal"><span class="stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg></span><q>Varer lenge, selv for stor hund, og brytes ikke i store biter. Favoritt hos oss.</q><div class="who"><b>Mari</b><span class="ver"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Verifisert kjøp</span></div><span class="prod">Braided bøffel</span></div>
+      <div class="rev reveal"><span class="stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg></span><q>Hundene elsker dem, og de varer en stund :) Kan ikke skryte av at de lukter så godt. Men vi overlever det haha.</q><div class="who"><b>Nora</b><span class="ver"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Verifisert kjøp</span></div><span class="prod">Okseplater</span></div>
+    </div>
+    <div class="center"><button type="button" class="morebtn" id="moreRev">Vis flere omtaler</button></div>
+  </div>
+</section>
+
+<!-- ================= TYGGESTIGEN ================= -->
+<section class="tsec">
+  <div class="wrap">
+    <div class="shead center reveal">
+      <span class="eyebrow">Tyggestigen</span>
+      <h2 class="h-lg" id="lHead">Fra middels til ekstra hard, med alle tall på bordet</h2>
+      <p class="lede">Vi viser deg lukt og fett også, ikke bare det som ser bra ut. Da vet du hva du gir hunden.</p>
+    </div>
+    <div class="ladder" id="ladder">
+      <div class="rung hdrrow"><span></span><span>Tygg</span><span>Tyggemotstand</span><span>Protein</span><span>Fett</span><span>Lukt</span></div>
+      <div class="rung reveal"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-lam.jpg" alt="Braided lamb" loading="lazy"><div class="nm"><b>Braided lamb</b><span>100 % lam · 13–17 cm</span></div><div class="mt"><div class="meter"><i class="f"></i><i class="f"></i><i></i><i></i></div><div class="mlbl">Middels</div></div><div class="kv pr"><small>Protein</small><b>67,4 %</b></div><div class="kv ft"><small>Fett</small><b>24,7 %</b></div><div class="kv lk"><small>Lukt</small><b>Lite</b></div></div>
+      <div class="rung reveal"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-boffel.jpg" alt="Braided bøffel" loading="lazy"><div class="nm"><b>Braided bøffel</b><span>100 % bøffelskinn · 13–16 cm</span></div><div class="mt"><div class="meter"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div><div class="mlbl">Hard</div></div><div class="kv pr"><small>Protein</small><b>80 %</b></div><div class="kv ft"><small>Fett</small><b>1 %</b></div><div class="kv lk"><small>Lukt</small><b>Lite</b></div></div>
+      <div class="rung reveal"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-pannelapp.jpg" alt="Storfe pannelapp" loading="lazy"><div class="nm"><b>Storfe pannelapp</b><span>100 % storfe · 12–18 cm</span></div><div class="mt"><div class="meter"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div><div class="mlbl">Hard</div></div><div class="kv pr"><small>Protein</small><b>92,6 %</b></div><div class="kv ft"><small>Fett</small><b>6,0 %</b></div><div class="kv lk"><small>Lukt</small><b>Middels</b></div></div>
+      <div class="rung reveal"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-kamel.jpg" alt="Kamelgumlere" loading="lazy"><div class="nm"><b>Kamelgumlere</b><span>100 % kamel</span></div><div class="mt"><div class="meter"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div><div class="mlbl">Svært hard</div></div><div class="kv pr"><small>Protein</small><b>88 %</b></div><div class="kv ft"><small>Fett</small><b>2,9 %</b></div><div class="kv lk"><small>Lukt</small><b>Noe*</b></div></div>
+      <div class="rung reveal"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-okseplater.jpg" alt="Okseplater" loading="lazy"><div class="nm"><b>Okseplater uten pels</b><span>Tørket oksehud · 10–25 cm</span></div><div class="mt"><div class="meter x"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div><div class="mlbl">Ekstra hard</div></div><div class="kv pr"><small>Protein</small><b>91 %</b></div><div class="kv ft"><small>Fett</small><b>6,0 %</b></div><div class="kv lk"><small>Lukt</small><b>Mye</b></div></div>
+    </div>
+    <p class="ladnote" id="lNote">Braided lamb er den mildeste i pakka og har mest fett. Braided bøffel er det motsatte: 1 % fett. *Lukt på kamelgumlere er ikke oppgitt av produsenten. En kunde skriver at «det lukter endel av de mens de spises». Alle tygg er naturprodukter, så form, farge og størrelse varierer.</p>
+    <div class="safety"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span id="safety"><b>Viktig:</b> Hold alltid oppsyn med hunden når godbiter/tyggeprodukter gis. Sørg for å alltid ha rent vann tilgjengelig.</span></div>
+  </div>
+</section>
+
+<!-- ================= SAMMENLIGN PAKKER ================= -->
+<section class="tsec" id="sammenlign">
+  <div class="wrap">
+    <div class="shead center reveal">
+      <span class="eyebrow">Finn riktig pakke</span>
+      <h2 class="h-lg">Large gir mest tygg for pengene</h2>
+      <p class="lede">Alle tyggepakkene er satt sammen av oss. Large har høyest rabatt av pakkene som er på lager. Trykk på en pakke for å se den.</p>
+    </div>
+    <div class="cmp">
+      <div class="cmpc reveal" data-card="s"><h3>Small</h3><div class="pr">329 kr<s>446 kr</s></div><div class="sv">Spar 117 kr</div><ul><li>Braided lamb</li><li>Braided bøffel</li><li>Kaninører uten pels</li><li>Kaninører med pels</li></ul><a class="go" href="#kjop" data-pick="s">Velg Small</a></div>
+      <div class="cmpc reveal" data-card="m"><h3>Medium</h3><div class="pr">679 kr<s>806 kr</s></div><div class="sv">Spar 127 kr</div><ul><li>Kyllinghals 300 g</li><li>Storfe luftrør 30 cm</li><li>Storfehale 250 g</li><li>Bøffelskinn 250 g</li></ul><a class="go" href="#kjop" data-pick="m">Velg Medium</a></div>
+      <div class="cmpc win reveal" data-card="l"><span class="tag">Størst rabatt</span><h3>Large</h3><div class="pr">999 kr<s>1 545 kr</s></div><div class="sv">Spar 546 kr (−35 %)</div><ul><li>Okseplater 500 g</li><li>Kamelgumlere 500 g</li><li>Braided lamb 250 g</li><li>Storfe pannelapp 250 g</li><li>Braided bøffel 250 g</li></ul><a class="go" href="#kjop" data-pick="l">Velg Large</a></div>
+      <div class="cmpc off reveal"><h3>XL</h3><div class="pr">1 999 kr<s>2 973 kr</s></div><div class="sv" style="color:var(--orange)">Utsolgt akkurat nå</div><ul><li>Tørrfisk av brosme 1,3 kg (2 stk)</li><li>Bøffelskinn 500 g</li><li>Okseplater med pels 500 g</li><li>Okseplater uten pels 1 kg</li><li>Bøffelchips 500 g</li></ul><a class="go" href="https://www.qualipet.no/produkt/tyggepakke-xl/">Utsolgt</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="tsec" style="padding-top:0">
+  <div class="wrap">
+    <div class="shead center reveal">
+      <span class="eyebrow">Spørsmål og svar</span>
+      <h2 class="h-lg">Det folk lurer på før de kjøper</h2>
+    </div>
+    <div class="faq" id="faq">
+      <details><summary>Passer pakka for min hund?</summary><div class="a"><p>Kundene våre gir disse tyggene til alt fra corgi og pinscher til labrador og golden retriever. Tyggene har ulik hardhet, fra braided lamb (middels) til okseplater (ekstra hard), så det er noe for de fleste.</p><p>Har du valp eller en veldig liten hund, kan <a href="https://www.qualipet.no/produkt/tyggepakke-small/" style="text-decoration:underline">Tyggepakke Small</a> være et bedre sted å starte.</p></div></details>
+      <details><summary>Hunden min har allergi. Hva er i pakka?</summary><div class="a"><p>Hvert tygg er laget av ett dyr: okse, kamel, storfe, lam og bøffel. Det er ingen kylling, svin eller korn i pakka.</p><p>Tåler hunden ikke storfe? Da passer ikke hele pakka, men kamelgumlere passer godt for hunder med intoleranse for storfe og svin.</p></div></details>
+      <details><summary>Lukter tyggene?</summary><div class="a"><p>Noen gjør det. Braided lamb og braided bøffel lukter lite, pannelappen middels, og okseplatene lukter mye. Som en kunde skrev: «Kan ikke skryte av at de lukter så godt. Men vi overlever det haha.» Mange opplever at lukten bare gjør hunden mer ivrig.</p></div></details>
+      <details><summary>Hvor lenge varer et tygg?</summary><div class="a"><p>Det kommer an på hunden og hvor hardt den tygger. En corgieier skriver at en valp brukte en uke på én braided bøffel, mens den voksne hunden bruker 20–30 minutter. Okseplatene og kamelgumlerne er de som varer lengst.</p></div></details>
+      <details><summary>Er tyggene trygge?</summary><div class="a"><p>Alle tyggene er 100 % naturlige og uten kunstige tilsetningsstoffer. Som med alle tyggeprodukter: hold alltid oppsyn med hunden når godbiter/tyggeprodukter gis, og sørg for å alltid ha rent vann tilgjengelig.</p></div></details>
+      <details><summary>Kan jeg bruke høstsalg-koden på pakka?</summary><div class="a"><p>Ja. Koden HØST gjelder også varer som allerede er satt ned, og gir 10 % på alt, 15 % fra 1 000 kr, 20 % fra 1 500 kr og 25 % fra 2 000 kr (maks 750 kr per ordre). Kampanjen gjelder til og med 10. oktober 2026.</p></div></details>
+      <details><summary>Levering, frakt og retur</summary><div class="a"><p>Leveringstid er 1–5 dager, og pakka har alltid fri frakt (over 599 kr). Du kan betale med Vipps, Klarna, Visa og Mastercard. Vanlig rett til retur og bytte gjelder.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SLUTT-CTA ================= -->
+<section class="tsec" style="padding-top:0">
+  <div class="wrap">
+    <div class="endcta reveal">
+      <span class="eyebrow" id="eEyebrow">Tyggepakke Large</span>
+      <h2 class="h-lg" id="eHead">1,75 kg naturlig tygg for 999 kr</h2>
+      <p class="lede" id="eLede">Fem tygg, fem teksturer, 546 kr billigere enn om du kjøper dem enkeltvis. Fri frakt og levering 1–5 dager.</p>
+      <div class="pk" id="ePk"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-okseplater.jpg" alt="" loading="lazy"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-kamel.jpg" alt="" loading="lazy"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-lam.jpg" alt="" loading="lazy"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-pannelapp.jpg" alt="" loading="lazy"><img src="https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-boffel.jpg" alt="" loading="lazy"></div>
+      <a href="#kjop" class="cta"><span class="t">Ja, gi meg pakka<span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><span class="sub" id="eSub">999 kr · du sparer 546 kr</span></a>
+      <span class="fine hs" hidden>Husk koden HØST i kassen: 10 % ekstra t.o.m. 10. oktober.</span>
+    </div>
+  </div>
+</section>
+</div>
+<script type="text/template" id="qtp-src">
+(function(){
+  var SHOP='https://www.qualipet.no';
+  var ON_SHOP=location.hostname.indexOf('qualipet.no')>-1;
+  var HOST_END=new Date('2026-10-10T23:59:59+02:00').getTime();
+  var NB=' ';
+  var STAR='<svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>';
+  var STARS='<span class="stars">'+STAR+STAR+STAR+STAR+STAR+'</span>';
+  var STARS4='<span class="stars">'+STAR+STAR+STAR+STAR+'<svg viewBox="0 0 20 20" style="fill:#E4E0D6"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg></span>';
+  var CHK='<svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>';
+  var TRUCK='<svg viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>';
+  var GIFT='<svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8S10 3 7.5 3 5 5.5 7 7s5 1 5 1 3 .5 5-1-1-4-2.5-4S12 8 12 8z"/></svg>';
+
+  /* ============ DATA PER PAKKE (alt hentet fra qualipet.no 29.09.2026) ============ */
+  var PACKS={
+    l:{
+      id:73901,key:'large',name:'Large',price:999,was:1545,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-pakke.jpg',
+      eyebrow:'Tyggepakke Large · 1,75 kg',
+      title:'Fem ulike tygg i én pakke. <span class="hl">Du sparer 546'+NB+'kr.</span>',
+      lede:'Fra flettet lam til ekstra harde okseplater: fem tygg med ulik hardhet, så hunden får variasjon og har noe å bryne seg på. 100'+NB+'% naturlig og uten kunstige tilsetningsstoffer.',
+      cap:'<b>Hele pakka:</b> 5 tygg, 1,75 kg, 999 kr',
+      prot:'Opptil 92,6 % protein',
+      per:'1,75 kg tygg · ca. 57 kr per 100 g (88 kr kjøpt enkeltvis)',
+      endHead:'1,75 kg naturlig tygg for 999 kr',
+      endLede:'Fem tygg, fem teksturer, 546 kr billigere enn om du kjøper dem enkeltvis. Fri frakt og levering 1–5 dager.',
+      items:[
+        {n:'Okseplater uten pels',w:'500 g',p:399,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-okseplater.jpg',d:'Ekstra hard. Den brede formen gir ekstra lang tyggetid. 91 % protein.',cap:'ekstra hard, 91 % protein',sub:'Tørket oksehud · 10–25 cm',lv:4,hl:'Ekstra hard',pr:'91 %',ft:'6,0 %',lk:'Mye'},
+        {n:'Kamelgumlere',w:'500 g',p:399,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-kamel.jpg',d:'Svært hardt tygg av 100 % kamel. 88 % protein, 2,9 % fett.',cap:'100 % kamel, 88 % protein',sub:'100 % kamel',lv:3,hl:'Svært hard',pr:'88 %',ft:'2,9 %',lk:'Noe*'},
+        {n:'Braided lamb',w:'250 g',p:349,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-lam.jpg',d:'Skånsomt tørket og flettet. Ujevnhetene bidrar til å rense tennene.',cap:'flettet, middels hard',sub:'100 % lam · 13–17 cm',lv:2,hl:'Middels',pr:'67,4 %',ft:'24,7 %',lk:'Lite'},
+        {n:'Storfe pannelapp',w:'250 g',p:199,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-pannelapp.jpg',d:'100 % storfe med hard tekstur. Hele 92,6 % protein.',cap:'hard, 92,6 % protein',sub:'100 % storfe · 12–18 cm',lv:3,hl:'Hard',pr:'92,6 %',ft:'6,0 %',lk:'Middels'},
+        {n:'Braided bøffel',w:'250 g',p:199,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-boffel.jpg',d:'100 % bøffelskinn. Lite fett, lite lukt, lang tyggemoro.',cap:'1 % fett, lite lukt',sub:'100 % bøffelskinn · 13–16 cm',lv:3,hl:'Hard',pr:'80 %',ft:'1 %',lk:'Lite'}
+      ],
+      ladderOrder:[2,4,3,1,0],
+      lHead:'Fra middels til ekstra hard, med alle tall på bordet',
+      lNote:'Braided lamb er den mildeste i pakka og har mest fett. Braided bøffel er det motsatte: 1 % fett. *Lukt på kamelgumlere er ikke oppgitt av produsenten. En kunde skriver at «det lukter endel av de mens de spises». Alle tygg er naturprodukter, så form, farge og størrelse varierer.',
+      pLede:'Det er derfor pakka har fem forskjellige tygg i stedet for fem like.',
+      pains:[
+        ['Tyggebeinet er borte på fem minutter','Pakka har <em>okseplater og kamelgumlere</em>, de to hardeste tyggene vi har. Laget for hunder som vanligvis sluker det meste.'],
+        ['Hunden går lei av det samme','<em>Fem ulike råvarer og teksturer</em>: okse, kamel, storfe, lam og bøffel. Du kan bytte hver dag.'],
+        ['Magen tåler ikke hva som helst','Tyggene består av én ingrediens hver. Om <em>braided lamb</em> skriver kundene: «Har en hund som er sensitiv i magen, disse fungerer kjempefint!»'],
+        ['Du vet ikke hva hunden liker','I stedet for å kjøpe én stor pose og håpe på det beste, <em>tester du fem tygg på én gang</em>. Til 546 kr mindre enn om du kjøpte dem hver for seg.']
+      ],
+      sHead:'Start mykt, jobb deg oppover',
+      steps:[
+        ['Begynn med det flettede','Braided lamb og bøffel er de mildeste i pakka og passer godt de første dagene. Fint også for hunder som har lett for å sluke store biter.'],
+        ['Bytt mellom tyggene','Fem råvarer og fem teksturer gjør at du kan variere fra dag til dag, i stedet for å gi det samme tygget hver kveld.'],
+        ['Spar de harde til de store øktene','Okseplater og kamelgumlere er de hardeste og varer lengst. Gi dem når hunden trenger noe å holde på med en god stund.']
+      ],
+      safety:'<b>Viktig:</b> Hold alltid oppsyn med hunden når godbiter/tyggeprodukter gis. Sørg for å alltid ha rent vann tilgjengelig.',
+      rv:{avg:'4,8',n:41,d:[34,7,0,0,0]},
+      reviews:[
+        ['Kjapp og enkel måte å bestille tygg på. Alle faller i smak hos snuppa vår. Noen varer lenger enn andre.','Jeanette',1,'Tyggepakke Large',5],
+        ['Jentene mine elsker denne, og den varer en stund. Dette er gårdshunder som vanligvis "sluker" tyggebein, men dette var midt i blinken :)','Camilla Therese',1,'Braided bøffel',5],
+        ['Har en hund som er sensitiv i magen, disse fungerer kjempefint! Han elsker disse.','Liv Kristin',1,'Braided lamb',5],
+        ['Veldig populære, min favoritt hittil (vi har prøvd mange ulike tyggebein) mild mot magen og tarmene - ingen skarpe biter','Kari',1,'Braided lamb',5],
+        ['Veldig fornøyd med denne, varer lenge, stor stas!','Tika23',1,'Okseplater',5],
+        ['Varer lenge, selv for stor hund, og brytes ikke i store biter. Favoritt hos oss.','Mari',1,'Braided bøffel',5],
+        ['Veldig fornøyd med disse. Min dsg er en hard tygger der mye går ned på relativt kort tid. Disse er harde, varer lenge og hunden liker de veldig godt','Mariann',1,'Kamelgumlere',5],
+        ['Disse er helt supre for mine litt større hunder! De stinker ikke, varer vesentlig lenger enn mye annet og hundene digger det.','Cathrine',0,'Storfe pannelapp',5],
+        ['Hundene elsker dem, og de varer en stund :) Kan ikke skryte av at de lukter så godt. Men vi overlever det haha.','Nora',1,'Okseplater',5],
+        ['Min blandingshund på 22 kg elsker disse! Passe harde for henne, andre tyggeting sluker hun, med disse må hun faktisk jobbe litt :)','Hanna',1,'Kamelgumlere',5]
+      ],
+      faq:[
+        ['Passer pakka for min hund?','<p>Kundene våre gir disse tyggene til alt fra corgi og pinscher til labrador og golden retriever. Tyggene har ulik hardhet, fra braided lamb (middels) til okseplater (ekstra hard), så det er noe for de fleste.</p><p>Har du valp eller en veldig liten hund, kan Tyggepakke Small være et bedre sted å starte.</p>'],
+        ['Hunden min har allergi. Hva er i pakka?','<p>Hvert tygg er laget av ett dyr: okse, kamel, storfe, lam og bøffel. Det er ingen kylling, svin eller korn i pakka.</p><p>Tåler hunden ikke storfe? Da passer ikke hele pakka, men kamelgumlere passer godt for hunder med intoleranse for storfe og svin.</p>'],
+        ['Lukter tyggene?','<p>Noen gjør det. Braided lamb og braided bøffel lukter lite, pannelappen middels, og okseplatene lukter mye. Som en kunde skrev: «Kan ikke skryte av at de lukter så godt. Men vi overlever det haha.» Mange opplever at lukten bare gjør hunden mer ivrig.</p>'],
+        ['Hvor lenge varer et tygg?','<p>Det kommer an på hunden og hvor hardt den tygger. En corgieier skriver at valpen brukte en uke på én braided bøffel, mens den voksne hunden bruker 20–30 minutter. Okseplatene og kamelgumlerne er de som varer lengst.</p>']
+      ],
+      ship:'<p>Leveringstid er 1–5 dager, og pakka har alltid fri frakt (over 599 kr). Du kan betale med Vipps, Klarna, Visa og Mastercard. Vanlig rett til retur og bytte gjelder.</p>'
+    },
+    m:{
+      id:73900,key:'medium',name:'Medium',price:679,was:806,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-pakke-medium.jpg',
+      eyebrow:'Tyggepakke Medium · 4 tygg',
+      title:'Fire tygg med helt ulik tekstur. <span class="hl">Du sparer 127'+NB+'kr.</span>',
+      lede:'Lufttørket kyllinghals, storfe luftrør, frysetørket storfehale og hardt bøffelskinn. Fire ulike råvarer og teksturer, 100'+NB+'% naturlig og uten kunstige tilsetningsstoffer.',
+      cap:'<b>Hele pakka:</b> 4 tygg, 679 kr',
+      prot:'Opptil 80 % protein',
+      per:'4 tygg · 127 kr billigere enn kjøpt enkeltvis',
+      endHead:'Fire ulike tygg for 679 kr',
+      endLede:'Kyllinghals, luftrør, storfehale og bøffelskinn, 127 kr billigere enn om du kjøper dem enkeltvis. Fri frakt og levering 1–5 dager.',
+      items:[
+        {n:'Storfehale',w:'250 g',p:329,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-storfehale.jpg',d:'Frysetørket, 100 % oksehale. Seig og variert struktur med bein, brusk og muskelvev.',cap:'seig og variert, 100 % oksehale',sub:'Frysetørket · 100 % storfe',lv:0,hl:'Seig og variert',pr:'–',ft:'–',lk:'–'},
+        {n:'Kyllinghals',w:'300 g',p:199,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-kyllinghals.jpg',d:'Lufttørket, 100 % kyllinghals. 52 % protein.',cap:'lufttørket, 52 % protein',sub:'Lufttørket · 100 % kylling',lv:0,hl:'Hardhet ikke oppgitt',pr:'52 %',ft:'21,3 %',lk:'–'},
+        {n:'Bøffelskinn',w:'250 g',p:199,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-boffelskinn.jpg',d:'Magert og hardt tygg av 100 % vannbøffel. Lite lukt, lang varighet.',cap:'hardt, 1 % fett, lite lukt',sub:'100 % vannbøffel · 10–13 cm',lv:3,hl:'Hard',pr:'80 %',ft:'1 %',lk:'Lite'},
+        {n:'Storfe luftrør',w:'30 cm',p:79,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-luftror.jpg',d:'100 % storfe luftrør fra Tyskland. Kan fylles med våtfôr, paté og lignende.',cap:'kan fylles med våtfôr eller paté',sub:'100 % storfe · 30 cm',lv:0,hl:'Hardhet ikke oppgitt',pr:'59,7 %',ft:'26,6 %',lk:'–'}
+      ],
+      ladderOrder:[1,3,0,2],
+      lHead:'Fire teksturer, med alle tall på bordet',
+      lNote:'Bøffelskinn er det hardeste og magreste i pakka (1 % fett). Storfehalen inneholder bein, brusk og muskelvev. Der produsenten ikke oppgir tyggemotstand, lukt eller næringsinnhold, står det en strek. Alle tygg er naturprodukter, så form, farge og størrelse varierer.',
+      pLede:'Det er derfor pakka har fire helt ulike tygg i stedet for fire like.',
+      pains:[
+        ['Hunden går lei av det samme','<em>Fire ulike råvarer og teksturer</em>: lufttørket kyllinghals, luftrør, frysetørket storfehale og hardt bøffelskinn.'],
+        ['Tyggebeinet er borte på fem minutter','<em>Bøffelskinn</em> har hard konsistens og varer lenge. En kunde skriver: «Omtrent det eneste tyggeproduktet som varer lenge her i hus.»'],
+        ['Allergi gjør det vanskelig å velge','Hvert tygg har én proteinkilde: kylling, storfe eller bøffel. <em>Bøffel</em> er et godt alternativ for mange hunder som sliter med allergi.'],
+        ['Hunden trenger noe å jobbe med','<em>Storfe luftrør</em> kan fylles med våtfôr eller paté, og storfehalen har en seig og variert struktur som gir hunden noe å bryne seg på.']
+      ],
+      sHead:'Fire tygg, fire bruksområder',
+      steps:[
+        ['Kyllinghals som godbit','Lufttørket og passe stor til en snacks. En kunde bruker den som turkos, en annen som belønning på stevner.'],
+        ['Fyll luftrøret','Fyll luftrøret med våtfôr eller paté, så får hunden en aktivitet i stedet for en godbit som er borte med en gang.'],
+        ['Bøffelskinn og storfehale til lange økter','De varer lengst. Tilpass størrelse og hardhet til hundens størrelse, tyggekraft og spisevaner.']
+      ],
+      safety:'<b>Viktig:</b> Hunden skal alltid være under oppsyn når den tygger, særlig fordi storfehalen inneholder bein. Sørg for at friskt vann er tilgjengelig.',
+      rv:{avg:'4,9',n:16,d:[15,1,0,0,0]},
+      reviews:[
+        ['Omtrent det eneste tyggeproduktet som varer lenge her i hus.','desiree-96',1,'Bøffelskinn',5],
+        ['Dette var et bra tyggeprodukt, som hunden likte. Det er lite lukt, noe som er kjekt innendørs.','Tone',1,'Bøffelskinn',5],
+        ['Denne likte vi veldig godt. Passer fint som turkos','Tika23',1,'Kyllinghals',5],
+        ['Varte lenger enn hva jeg hadde trodd til min labrador. Virket som hun likte det godt.','anettebergerj',1,'Bøffelskinn',5],
+        ['Dette er en stor favoritt hos min puddel!! Anbefales!','Henriette',1,'Kyllinghals',5],
+        ['Både valpen og storesøster på 3 år elsker kyllinghalsene:) De anbefaler det begge to!','Amy',1,'Kyllinghals',5],
+        ['En av storfavorittene hos samtlige av våre seks chihuahuaer! De varer ikke veldig lenge, men er helt klart blant våre topp ti snacks likevel 😁','Guro',1,'Kyllinghals',5],
+        ['Har alltid med kyllinghals på stevner, og de blir brukt som belønning når vi har kommet i mål. Lukter ikke godt, men hunden min er veldig glad i dem :)','Elisabeth',1,'Kyllinghals',5],
+        ['Disse lukter ikke så mye, men hundene synes likevel de smaker fantastisk. Kunne ønske bitene var større.','Andrea',1,'Bøffelskinn',4]
+      ],
+      faq:[
+        ['Passer pakka for min hund?','<p>Kundene gir tyggene i Medium til alt fra chihuahua og puddel (kyllinghals) til labrador (bøffelskinn).</p><p>Storfehalen inneholder bein. Størrelse og hardhet bør alltid tilpasses hundens størrelse, tyggekraft og spisevaner.</p>'],
+        ['Hunden min har allergi. Hva er i pakka?','<p>Hvert tygg har én proteinkilde: kylling (kyllinghals), storfe (luftrør og storfehale) og bøffel (bøffelskinn). Det er ingen lam, svin eller fisk i pakka.</p><p>Tåler hunden ikke kylling eller storfe? Da passer Tyggepakke Small (lam, bøffel og kanin) bedre.</p>'],
+        ['Lukter tyggene?','<p>Bøffelskinnet lukter lite. For kyllinghalsen skriver en kunde: «Lukter ikke godt, men hunden min er veldig glad i dem.» Lukt er ikke oppgitt for luftrøret og storfehalen.</p>'],
+        ['Hvor lenge varer et tygg?','<p>Bøffelskinnet og storfehalen varer lengst. Kyllinghalsen er mer en snacks: «De varer ikke veldig lenge, men er helt klart blant våre topp ti snacks likevel.»</p>']
+      ],
+      ship:'<p>Leveringstid er 1–5 dager, og pakka har alltid fri frakt (over 599 kr). Du kan betale med Vipps, Klarna, Visa og Mastercard. Vanlig rett til retur og bytte gjelder.</p>'
+    },
+    s:{
+      id:73899,key:'small',name:'Small',price:329,was:446,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-pakke-small.jpg',
+      eyebrow:'Tyggepakke Small · 400 g',
+      title:'Fire tygg å teste. <span class="hl">Du sparer 117'+NB+'kr.</span>',
+      lede:'Braided lamb, braided bøffel og kaninører med og uten pels, i 100'+NB+'g-poser. En rimelig måte å finne ut hva hunden liker. 100'+NB+'% naturlig og uten kunstige tilsetningsstoffer.',
+      cap:'<b>Hele pakka:</b> 4 tygg, 400 g, 329 kr',
+      prot:'Opptil 80 % protein',
+      per:'400 g tygg · ca. 82 kr per 100 g (112 kr kjøpt enkeltvis)',
+      endHead:'Fire tygg å teste for 329 kr',
+      endLede:'Lam, bøffel og kanin i 100 g-poser, 117 kr billigere enn om du kjøper dem enkeltvis. Levering 1–5 dager.',
+      items:[
+        {n:'Braided lamb',w:'100 g',p:149,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-lam.jpg',d:'Skånsomt tørket og flettet. Ujevnhetene bidrar til å rense tennene.',cap:'flettet, middels hard',sub:'100 % lam · 13–17 cm',lv:2,hl:'Middels',pr:'67,4 %',ft:'24,7 %',lk:'Lite'},
+        {n:'Kaninører med pels',w:'100 g',p:99,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-kaninorer.jpg',d:'Lufttørket, uten kunstige farger eller konserveringsmidler. 66 % protein.',cap:'lufttørket, 66 % protein',sub:'Lufttørket · 100 % kanin',lv:0,hl:'Hardhet ikke oppgitt',pr:'66,3 %',ft:'22,7 %',lk:'–'},
+        {n:'Kaninører uten pels',w:'100 g',p:99,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-kaninorer-up.jpg',d:'100 % europeisk kanin, monoprotein. Passer i utgangspunktet for valper fra 12 uker.',cap:'valper fra 12 uker',sub:'Monoprotein · 100 % kanin',lv:0,hl:'Hardhet ikke oppgitt',pr:'51,6 %',ft:'32,3 %',lk:'–'},
+        {n:'Braided bøffel',w:'100 g',p:99,img:'https://www.qualipet.no/wp-content/uploads/2026/09/arcads-tyggepakke-boffel.jpg',d:'100 % bøffelskinn. Lite fett, lite lukt, lang tyggemoro.',cap:'1 % fett, lite lukt',sub:'100 % bøffelskinn · 13–16 cm',lv:3,hl:'Hard',pr:'80 %',ft:'1 %',lk:'Lite'}
+      ],
+      ladderOrder:[1,2,0,3],
+      lHead:'Fire tygg, med alle tall på bordet',
+      lNote:'Braided bøffel er det hardeste og magreste i pakka (1 % fett). Kaninørene er mer snacks enn langtygg. Der produsenten ikke oppgir tyggemotstand eller lukt, står det en strek. Alle tygg er naturprodukter, så form, farge og størrelse varierer.',
+      pLede:'Det er derfor pakka har fire ulike tygg i små poser.',
+      pains:[
+        ['Du vet ikke hva hunden liker','<em>Fire tygg i 100 g-poser</em>. En kunde skriver: «Super pakke om man vil teste litt forskjellig.»'],
+        ['Du har valp','<em>Kaninører uten pels</em> passer i utgangspunktet for valper fra 12 uker. «Perfekt for valpen vår som mister tenner og klør veldig i munnen nå!»'],
+        ['Magen tåler ikke hva som helst','Tyggene består av én ingrediens hver. Om <em>braided lamb</em> skriver kundene: «Har en hund som er sensitiv i magen, disse fungerer kjempefint!»'],
+        ['Hunden tåler ikke fisk eller kylling','Pakka inneholder bare <em>lam, bøffel og kanin</em>. «For oss er det fint med pakker uten fisk da dette kan være vanskelig å finne.»']
+      ],
+      sHead:'Finn favoritten',
+      steps:[
+        ['La hunden velge først','Legg alle fire foran hunden og se hva den går for. «De 4beinte fikk velge selv hva de ville prøve først.»'],
+        ['Kaninører som belønning','Kaninørene er populære som ekstra god belønning, for eksempel under innkallingstrening.'],
+        ['Bøffel når den trenger mer','Braided bøffel er den hardeste i pakka. Trenger hunden mer motstand, er Medium eller Large neste steg.']
+      ],
+      safety:'<b>Viktig:</b> Hold alltid oppsyn med hunden når godbiter/tyggeprodukter gis. Sørg for å alltid ha rent vann tilgjengelig.',
+      rv:{avg:'4,9',n:66,d:[57,9,0,0,0]},
+      reviews:[
+        ['Super pakke om man vil teste litt forskjellig. For oss er det fint med pakker uten fisk da dette kam være vanskelig å finne og ene min er allergisk. De 4beinte fikk velge selv hva de ville prøve føst.','Nora',1,'Tyggepakke Small',5],
+        ['Overrasket over hvor store de var. Og hvor mange det var i posen! Cocker brukte 10 minutter på denne. :)','Christine G.',1,'Kaninører uten pels',5],
+        ['Perfekt for valpen vår som mister tenner og klør veldig i munnen nå!','Charlotte',1,'Kaninører uten pels',5],
+        ['Har en hund som er sensitiv i magen, disse fungerer kjempefint! Han elsker disse.','Liv Kristin',1,'Braided lamb',5],
+        ['Stor favoritt hos min Lhasa Apso!','Erle Elisa',1,'Kaninører med pels',5],
+        ['Favoritten til valpen! Tygger fort opp, men god tygg og lukter lite.','Team Harmoni',1,'Kaninører med pels',5],
+        ['Varer lenge, selv for stor hund, og brytes ikke i store biter. Favoritt hos oss.','Mari',1,'Braided bøffel',5],
+        ['Hundene mine digger disse! Enkle å tygge, så passer også fint til valper :D','tilandrea',1,'Kaninører med pels',5],
+        ['Mmmm! Bare matmor som ikke er så fan av lukten🤣','Maria-Sofie',1,'Kaninører med pels',4]
+      ],
+      faq:[
+        ['Passer pakka for min hund?','<p>Small består av 100 g-poser og er et fint sted å starte hvis du har valp eller vil teste. Kaninører uten pels passer i utgangspunktet for valper fra 12 uker.</p><p>Kundene gir kaninørene til alt fra Lhasa Apso og cocker til labrador og Rhodesian ridgeback.</p>'],
+        ['Hunden min har allergi. Hva er i pakka?','<p>Hvert tygg er laget av ett dyr: lam, bøffel og kanin. Det er ingen kylling, storfe, svin eller fisk i pakka.</p>'],
+        ['Lukter tyggene?','<p>Braided lamb og braided bøffel lukter lite. Om kaninørene skriver mange at de lukter lite, men ikke alle: «Bare matmor som ikke er så fan av lukten.»</p>'],
+        ['Hvor lenge varer et tygg?','<p>Kaninørene er mer en snacks enn et langtygg: «De varer ikke så lenge, men en super snacks.» En cocker brukte 10 minutter på ett kaninøre. Braided bøffel varer lengst i pakka.</p>']
+      ],
+      ship:'<p>Leveringstid er 1–5 dager. Fri frakt gjelder fra 599 kr, så Small (329 kr) kommer under grensen. Du kan betale med Vipps, Klarna, Visa og Mastercard. Vanlig rett til retur og bytte gjelder.</p>'
+    }
+  };
+  var FAQ_STATIC=[
+    ['Er tyggene trygge?','<p>Alle tyggene er 100 % naturlige og uten kunstige tilsetningsstoffer. Som med alle tyggeprodukter: hold alltid oppsyn med hunden når godbiter/tyggeprodukter gis, og sørg for å alltid ha rent vann tilgjengelig.</p>'],
+    ['Kan jeg bruke høstsalg-koden på pakka?','<p>Ja. Koden HØST gjelder også varer som allerede er satt ned, og gir 10 % på alt, 15 % fra 1 000 kr, 20 % fra 1 500 kr og 25 % fra 2 000 kr (maks 750 kr per ordre). Kampanjen gjelder til og med 10. oktober 2026.</p>']
+  ];
+
+  var cur='l';
+  var $=function(id){return document.getElementById(id)};
+  function kr(n){return Math.round(n).toLocaleString('nb-NO').replace(/ /g,' ')+' kr'}
+  function hostActive(){return Date.now()<HOST_END}
+  function hostPrice(sum){
+    var r=0.10;
+    if(sum>=1000){r=0.15}
+    if(sum>=1500){r=0.20}
+    if(sum>=2000){r=0.25}
+    return sum-Math.min(sum*r,750);
+  }
+  function set(id,html){var el=$(id);if(el){el.innerHTML=html}}
+  function arw(){return '<span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>'}
+
+  function renderGallery(p){
+    var th='<button class="on" data-src="'+p.img+'" data-cap="'+p.cap.replace(/"/g,'\'')+'" aria-label="Hele pakka"><img src="'+p.img+'" alt=""></button>';
+    p.items.forEach(function(it){
+      th+='<button data-src="'+it.img+'" data-cap="<b>'+it.n+' '+it.w+':</b> '+it.cap+'" aria-label="'+it.n+'"><img src="'+it.img+'" alt="" loading="lazy"></button>';
+    });
+    $('galThumbs').innerHTML=th;
+    $('galThumbs').style.gridTemplateColumns='repeat('+(p.items.length+1)+',1fr)';
+    $('galImg').src=p.img;$('galImg').alt='Tyggepakke '+p.name;
+    set('galCap',p.cap);
+    set('galBadge','Spar '+kr(p.was-p.price));
+    Array.prototype.forEach.call(document.querySelectorAll('#galThumbs button'),function(b){
+      b.addEventListener('click',function(){
+        Array.prototype.forEach.call(document.querySelectorAll('#galThumbs button'),function(x){x.classList.remove('on')});
+        b.classList.add('on');
+        var img=$('galImg');img.style.opacity=0;
+        setTimeout(function(){img.src=b.getAttribute('data-src');img.style.opacity=1},160);
+        $('galCap').innerHTML=b.getAttribute('data-cap');
+      });
+    });
+  }
+
+  function renderStack(p){
+    var h='';
+    p.items.forEach(function(it){
+      h+='<div class="vrow"><img src="'+it.img+'" alt="'+it.n+'" loading="lazy"><div class="txt"><b>'+it.n+' · '+it.w+'</b><span>'+it.d+'</span></div><div class="val">Verdi<b>'+kr(it.p)+'</b></div></div>';
+    });
+    if(p.price>=599){
+      h+='<div class="vrow"><span class="ico">'+TRUCK+'</span><div class="txt"><b>Fri frakt</b><span>Pakka er over 599 kr, så frakten er alltid gratis. Levering 1–5 dager.</span></div><div class="val">'+NB+'<b class="inc">Inkludert</b></div></div>';
+    }
+    h+='<div class="vrow"><span class="ico">'+GIFT+'</span><div class="txt"><b>Gave på neste ordre</b><span>Ny i kundeklubben? Denne ordren pluss én omtale gir deg et gratis produkt til en verdi av 50 kr på neste ordre.*</span></div><div class="val">'+NB+'<b class="inc">Bonus</b></div></div>';
+    h+='<div class="vsum"><span>Samlet verdi</span><span class="amt">'+kr(p.was)+'</span></div>';
+    h+='<div class="vfinal"><div class="l">Din pris</div><div class="p">'+kr(p.price)+'</div><span class="save">Du sparer '+kr(p.was-p.price)+' på tyggene</span><span class="per">'+p.per+'</span></div>';
+    $('vstack').innerHTML=h;
+    set('vHead','Kjøpt hver for seg: '+kr(p.was)+'.<br>I pakka: '+kr(p.price)+'.');
+    set('vCtaSub',kr(p.price)+' · verdi '+kr(p.was));
+  }
+
+  function renderLadder(p){
+    var h='<div class="rung hdrrow"><span></span><span>Tygg</span><span>Tyggemotstand</span><span>Protein</span><span>Fett</span><span>Lukt</span></div>';
+    p.ladderOrder.forEach(function(i){
+      var it=p.items[i];var m='';
+      if(it.lv>0){
+        m='<div class="meter'+(it.lv===4?' x':'')+'">';
+        for(var k=1;k<5;k++){m+='<i'+(k<=it.lv?' class="f"':'')+'></i>'}
+        m+='</div><div class="mlbl">'+it.hl+'</div>';
+      } else { m='<div class="mlbl na">'+it.hl+'</div>' }
+      h+='<div class="rung in"><img src="'+it.img+'" alt="'+it.n+'" loading="lazy"><div class="nm"><b>'+it.n+'</b><span>'+it.sub+'</span></div><div class="mt">'+m+'</div><div class="kv pr"><small>Protein</small><b>'+it.pr+'</b></div><div class="kv ft"><small>Fett</small><b>'+it.ft+'</b></div><div class="kv lk"><small>Lukt</small><b>'+it.lk+'</b></div></div>';
+    });
+    $('ladder').innerHTML=h;
+    set('lHead',p.lHead);set('lNote',p.lNote);
+  }
+
+  function renderPains(p){
+    var h='';
+    p.pains.forEach(function(x){h+='<div class="pain in"><span class="x">!</span><b>'+x[0]+'</b><p>'+x[1]+'</p></div>'});
+    $('pains').innerHTML=h;set('pLede',p.pLede);
+  }
+
+  function renderSteps(p){
+    var h='';
+    p.steps.forEach(function(x,i){h+='<div class="stepc in"><span class="n">'+(i+1)+'</span><b>'+x[0]+'</b><p>'+x[1]+'</p></div>'});
+    $('steps').innerHTML=h;set('sHead',p.sHead);set('safety',p.safety);
+  }
+
+  function renderReviews(p){
+    var r=p.rv,h='<div class="center"><div class="big">'+r.avg+'</div>'+STARS+'<div class="meta">'+r.n+' omtaler av tyggene i pakka</div></div><div class="dist" aria-hidden="true">';
+    for(var k=0;k<5;k++){h+='<div><span>'+(5-k)+'★</span><i><s style="width:'+Math.round(r.d[k]/r.n*100)+'%"></s></i><span>'+r.d[k]+'</span></div>'}
+    $('rsum').innerHTML=h+'</div>';
+    var c='';
+    p.reviews.forEach(function(x,i){
+      c+='<div class="rev in'+(i===0?' hi':'')+'">'+(x[4]===5?STARS:STARS4)+'<q>'+x[0]+'</q><div class="who"><b>'+x[1]+'</b>'+(x[2]?'<span class="ver">'+CHK+'Verifisert kjøp</span>':'<span></span>')+'</div><span class="prod">'+x[3]+'</span></div>';
+    });
+    $('revs').innerHTML=c;
+    set('rRate',r.avg+' av 5');set('rCount',r.n+' omtaler');
+    set('tRate',r.avg+' av 5');set('tRateS',r.n+' omtaler av tyggene i pakka');
+  }
+
+  function renderFaq(p){
+    var all=p.faq.concat(FAQ_STATIC).concat([['Levering, frakt og retur',p.ship]]);
+    var h='';
+    all.forEach(function(x){h+='<details><summary>'+x[0]+'</summary><div class="a">'+x[1]+'</div></details>'});
+    $('faq').innerHTML=h;
+  }
+
+  function renderEnd(p){
+    set('eEyebrow','Tyggepakke '+p.name);set('eHead',p.endHead);set('eLede',p.endLede);
+    var h='';p.items.forEach(function(it){h+='<img src="'+it.img+'" alt="" loading="lazy">'});
+    $('ePk').innerHTML=h;
+    set('eSub',kr(p.price)+' · du sparer '+kr(p.was-p.price));
+  }
+
+  function renderBuy(p){
+    var save=p.was-p.price,pct='−'+Math.round(save/p.was*100)+' %';
+    $('pNow').textContent=kr(p.price);$('pWas').textContent=kr(p.was);$('pPct').textContent=pct;
+    $('mNow').textContent=kr(p.price);$('mWas').textContent=kr(p.was);$('mPct').textContent=pct;
+    $('pSave').innerHTML='Du sparer '+kr(save)+' <span>mot å kjøpe tyggene enkeltvis</span>';
+    $('buySub').textContent=kr(p.price)+(p.price>=599?' · fri frakt':'');
+    if(hostActive()){
+      $('hPrice').textContent=kr(hostPrice(p.price));
+      $('hNudge').textContent=p.price>=1000?'Du får 15 % på hele kurven.':'Handler du for 1 000 kr eller mer, blir det 15 % på hele kurven.';
+    }
+    set('tProt',p.prot);
+    set('tShip',p.price>=599?'Alltid fri frakt på pakka':'Fri frakt fra 599 kr');
+    Array.prototype.forEach.call(document.querySelectorAll('.pack'),function(x){x.classList.toggle('on',x.getAttribute('data-pack')===cur)});
+    Array.prototype.forEach.call(document.querySelectorAll('[data-card]'),function(x){x.classList.toggle('sel',x.getAttribute('data-card')===cur)});
+  }
+
+  function renderAll(first){
+    var p=PACKS[cur];
+    renderBuy(p);
+    set('hEyebrow',p.eyebrow);set('crumb','Tyggepakke '+p.name);set('hTitle',p.title);
+    renderGallery(p);renderStack(p);renderLadder(p);set('safety',p.safety);renderReviews(p);renderFaq(p);renderEnd(p);
+    document.title='Tyggepakke '+p.name+' – '+p.items.length+' naturlige tygg, spar '+kr(p.was-p.price)+' | QualiPet';
+    if(!first){
+      try{var u=new URL(location.href);u.searchParams.set('pakke',p.key);history.replaceState(null,'',u.toString())}catch(e){}
+    }
+  }
+
+  function pick(k){
+    if(!PACKS[k]){return}
+    cur=k;renderAll(false);
+  }
+
+  /* Pakkevelger */
+  Array.prototype.forEach.call(document.querySelectorAll('.pack'),function(el){
+    el.addEventListener('click',function(e){
+      if(el.classList.contains('off')){e.preventDefault();return}
+      var k=el.getAttribute('data-pack');
+      if(k!==cur){pick(k)}
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-pick]'),function(a){
+    a.addEventListener('click',function(){pick(a.getAttribute('data-pick'))});
+  });
+
+  /* Vis flere omtaler */
+  $('moreRev').addEventListener('click',function(){$('revs').classList.add('all');this.style.display='none'});
+
+  /* Høstsalg: vis og tell ned til 10.10.2026 23:59 */
+  if(hostActive()){
+    Array.prototype.forEach.call(document.querySelectorAll('.hs'),function(el){el.hidden=false});
+    var cd=document.querySelector('[data-cd]');
+    var tick=function(){
+      var s=Math.max(0,Math.floor((HOST_END-Date.now())/1000));
+      var d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60);
+      cd.textContent=(d>0?d+' d ':'')+h+' t '+m+' min';
+    };
+    tick();setInterval(tick,30000);
+  }
+
+  /* Legg i kurv: butikkens egen wc-ajax på qualipet.no, ellers lenke til handlekurven */
+  function ajaxAdd(id){
+    var body=new URLSearchParams();body.set('product_id',id);body.set('quantity','1');
+    return fetch('/?wc-ajax=add_to_cart',{method:'POST',credentials:'same-origin',body:body}).then(function(r){return r.json()});
+  }
+  $('buyBtn').addEventListener('click',function(){
+    var p=PACKS[cur];var btn=this;
+    if(!ON_SHOP){
+      var q=new URLSearchParams();q.set('add-to-cart',p.id);
+      location.href=SHOP+'/handlevogn/?'+q.toString();
+      return;
+    }
+    btn.classList.add('is-busy');
+    ajaxAdd(p.id).then(function(res){
+      btn.classList.remove('is-busy');btn.classList.add('is-done');
+      $('cartMsg').classList.add('on');
+      if(window.jQuery){
+        if(res){ if(res.fragments){ window.jQuery(document.body).trigger('added_to_cart',[res.fragments,res.cart_hash,window.jQuery(btn)]) } }
+      }
+    }).catch(function(){
+      location.href=SHOP+'/produkt/tyggepakke-'+p.key+'/';
+    });
+  });
+
+  /* Reveal */
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -40px 0px'});
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal'),function(el){io.observe(el)});
+  } else {
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal'),function(el){el.classList.add('in')});
+  }
+
+  /* Start: ?pakke=small|medium|large */
+  var want='l';
+  try{
+    var qp=new URLSearchParams(location.search).get('pakke');
+    if(qp==='small'){want='s'}
+    if(qp==='medium'){want='m'}
+  }catch(e){}
+  cur=want;renderAll(true);
+})();
+</script><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" width="1" height="1" data-no-lazy="1" loading="eager" decoding="sync" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none" onload="(function(){if(window.__qtpI)return;window.__qtpI=1;var t=document.getElementById('qtp-src');if(!t)return;var s=document.createElement('script');s.textContent=t.textContent;document.body.appendChild(s);})()" onerror="(function(){if(window.__qtpI)return;window.__qtpI=1;var t=document.getElementById('qtp-src');if(!t)return;var s=document.createElement('script');s.textContent=t.textContent;document.body.appendChild(s);})()">
+</div>
+<!-- /wp:html -->
