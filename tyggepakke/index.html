@@ -340,6 +340,40 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 footer img{height:28px;width:auto;filter:brightness(0) invert(1);opacity:.9}
 footer a{text-decoration:underline;text-underline-offset:3px}
 
+
+/* ---------- Slankere mobil (29.09) ---------- */
+.revs .rev:nth-child(n+7){display:none}
+.revs.all .rev{display:block}
+.morebtn{margin-top:6px;background:none;border:1.5px solid var(--green);color:var(--green);font-weight:700;font-size:0.92rem;border-radius:999px;padding:11px 26px;cursor:pointer}
+.morebtn:hover{background:var(--green);color:#fff}
+.ladder+.ladnote+.safety,.ladnote+.safety{margin-top:14px}
+@media(max-width:940px){.mprice{display:none!important}.pdp-head .lede{display:none}}
+@media(max-width:760px){
+  .revs .rev:nth-child(n+4){display:none}
+  .revs.all .rev{display:block}
+  .vrow img+.txt span{display:none}
+  .vrow{padding:12px 14px}
+  .rung{grid-template-columns:48px 1fr 1fr 1fr!important;grid-template-areas:"img nm nm nm" "img mtr mtr mtr" "img pr ft lk"!important;gap:6px 10px!important;padding:12px!important}
+  .rung img{width:48px!important;height:48px!important}
+  .kv{background:none!important;padding:0!important}
+  .kv small{font-size:0.62rem}
+  .kv b{font-size:0.9rem}
+  .ladder{gap:8px}
+  .shead{margin-bottom:22px}
+  .rsum{gap:14px;margin-bottom:20px}
+  .rsum .big{font-size:2.6rem}
+  .dist{display:none}
+  .assure{grid-template-columns:1fr;gap:6px}
+  .pricebox{padding-top:4px}
+  .cmpc.off{display:none}
+  .cmp{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .cmpc{padding:18px 10px 12px}
+  .cmpc ul{display:none}
+  .cmpc .go{font-size:0.8rem;padding:9px 6px}
+  #lHead+.lede{display:none}
+  .rung .meter{max-width:160px}
+}
+
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
@@ -437,42 +471,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
           <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>100 % naturlig, ingen tilsetninger</li>
         </ul>
         <div class="pay" aria-label="Betalingsmåter"><span>Vipps</span><span>Klarna</span><span>Visa</span><span>Mastercard</span></div>
-        <div class="inpack" id="inPack" style="margin:16px 0 0">
-          <div class="lbl" style="margin:0 0 8px">I pakka</div><ul>
-            <li>Okseplater uten pels 500 g <span>399 kr</span></li>
-            <li>Kamelgumlere 500 g <span>399 kr</span></li>
-            <li>Braided lamb 250 g <span>349 kr</span></li>
-            <li>Storfe pannelapp 250 g <span>199 kr</span></li>
-            <li>Braided bøffel 250 g <span>199 kr</span></li>
-          </ul>
-        </div>
-
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= TRUST BAR ================= -->
-<div class="trust"><div class="wrap">
-  <div class="it"><span class="ic"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/></svg></span><div><b>100 % naturlig</b><small>Ingen kunstige tilsetningsstoffer</small></div></div>
-  <div class="it"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M21 21l-1-1M3 3l1 1M18 22l4-4M2 6l4-4M3 10l7-7M14 21l7-7"/></svg></span><div><b id="tProt">Opptil 92,6 % protein</b><small>Rent kjøtt og skinn, ett dyr per tygg</small></div></div>
-  <div class="it"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><div><b>Levering 1–5 dager</b><small id="tShip">Alltid fri frakt på pakka</small></div></div>
-  <div class="it"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></span><div><b id="tRate">4,8 av 5</b><small id="tRateS">41 omtaler av tyggene i pakka</small></div></div>
-</div></div>
-
-<!-- ================= PROBLEM → LØSNING ================= -->
-<section class="section">
-  <div class="wrap">
-    <div class="shead center reveal">
-      <span class="eyebrow">Kjenner du deg igjen?</span>
-      <h2 class="h-lg">Tyggebehovet må ut et sted</h2>
-      <p class="lede" id="pLede">Det er derfor pakka har fem forskjellige tygg i stedet for fem like.</p>
-    </div>
-    <div class="pains" id="pains">
-      <div class="pain reveal"><span class="x">!</span><b>Tyggebeinet er borte på fem minutter</b><p>Pakka har <em>okseplater og kamelgumlere</em>, de to hardeste tyggene vi har. Laget for hunder som vanligvis sluker det meste.</p></div>
-      <div class="pain reveal"><span class="x">!</span><b>Hunden går lei av det samme</b><p><em>Fem ulike råvarer og teksturer</em>: okse, kamel, storfe, lam og bøffel. Du kan bytte hver dag.</p></div>
-      <div class="pain reveal"><span class="x">!</span><b>Magen tåler ikke hva som helst</b><p>Tyggene består av én ingrediens hver. Om <em>braided lamb</em> skriver kundene: «Har en hund som er sensitiv i magen, disse fungerer kjempefint!»</p></div>
-      <div class="pain reveal"><span class="x">!</span><b>Du vet ikke hva hunden liker</b><p>I stedet for å kjøpe én stor pose og håpe på det beste, <em>tester du fem tygg på én gang</em>. Til 546 kr mindre enn om du kjøpte dem hver for seg.</p></div>
     </div>
   </div>
 </section>
@@ -502,42 +501,6 @@ footer a{text-decoration:underline;text-underline-offset:3px}
     </div>
     <p class="vfoot">*Nivå 1 i kundeklubben: legg inn én ordre og skriv én omtale mens du er logget inn, så får du et gratis produkt til en verdi av 50 kr på neste ordre. Omtaler godkjennes manuelt.</p>
     <div class="center reveal" style="margin-top:30px"><a href="#kjop" class="cta"><span class="t">Ja, gi meg pakka<span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><span class="sub" id="vCtaSub">999 kr · verdi 1 545 kr</span></a></div>
-  </div>
-</section>
-
-<!-- ================= TYGGESTIGEN ================= -->
-<section class="section">
-  <div class="wrap">
-    <div class="shead center reveal">
-      <span class="eyebrow">Tyggestigen</span>
-      <h2 class="h-lg" id="lHead">Fra middels til ekstra hard, med alle tall på bordet</h2>
-      <p class="lede">Vi viser deg lukt og fett også, ikke bare det som ser bra ut. Da vet du hva du gir hunden.</p>
-    </div>
-    <div class="ladder" id="ladder">
-      <div class="rung hdrrow"><span></span><span>Tygg</span><span>Tyggemotstand</span><span>Protein</span><span>Fett</span><span>Lukt</span></div>
-      <div class="rung reveal"><img src="img/lam.jpg" alt="Braided lamb" loading="lazy"><div class="nm"><b>Braided lamb</b><span>100 % lam · 13–17 cm</span></div><div class="mt"><div class="meter"><i class="f"></i><i class="f"></i><i></i><i></i></div><div class="mlbl">Middels</div></div><div class="kv pr"><small>Protein</small><b>67,4 %</b></div><div class="kv ft"><small>Fett</small><b>24,7 %</b></div><div class="kv lk"><small>Lukt</small><b>Lite</b></div></div>
-      <div class="rung reveal"><img src="img/boffel.jpg" alt="Braided bøffel" loading="lazy"><div class="nm"><b>Braided bøffel</b><span>100 % bøffelskinn · 13–16 cm</span></div><div class="mt"><div class="meter"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div><div class="mlbl">Hard</div></div><div class="kv pr"><small>Protein</small><b>80 %</b></div><div class="kv ft"><small>Fett</small><b>1 %</b></div><div class="kv lk"><small>Lukt</small><b>Lite</b></div></div>
-      <div class="rung reveal"><img src="img/pannelapp.jpg" alt="Storfe pannelapp" loading="lazy"><div class="nm"><b>Storfe pannelapp</b><span>100 % storfe · 12–18 cm</span></div><div class="mt"><div class="meter"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div><div class="mlbl">Hard</div></div><div class="kv pr"><small>Protein</small><b>92,6 %</b></div><div class="kv ft"><small>Fett</small><b>6,0 %</b></div><div class="kv lk"><small>Lukt</small><b>Middels</b></div></div>
-      <div class="rung reveal"><img src="img/kamel.jpg" alt="Kamelgumlere" loading="lazy"><div class="nm"><b>Kamelgumlere</b><span>100 % kamel</span></div><div class="mt"><div class="meter"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div><div class="mlbl">Svært hard</div></div><div class="kv pr"><small>Protein</small><b>88 %</b></div><div class="kv ft"><small>Fett</small><b>2,9 %</b></div><div class="kv lk"><small>Lukt</small><b>Noe*</b></div></div>
-      <div class="rung reveal"><img src="img/okseplater.jpg" alt="Okseplater" loading="lazy"><div class="nm"><b>Okseplater uten pels</b><span>Tørket oksehud · 10–25 cm</span></div><div class="mt"><div class="meter x"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div><div class="mlbl">Ekstra hard</div></div><div class="kv pr"><small>Protein</small><b>91 %</b></div><div class="kv ft"><small>Fett</small><b>6,0 %</b></div><div class="kv lk"><small>Lukt</small><b>Mye</b></div></div>
-    </div>
-    <p class="ladnote" id="lNote">Braided lamb er den mildeste i pakka og har mest fett. Braided bøffel er det motsatte: 1 % fett. *Lukt på kamelgumlere er ikke oppgitt av produsenten. En kunde skriver at «det lukter endel av de mens de spises». Alle tygg er naturprodukter, så form, farge og størrelse varierer.</p>
-  </div>
-</section>
-
-<!-- ================= SLIK BRUKER DU PAKKA ================= -->
-<section class="section" style="padding-top:0">
-  <div class="wrap">
-    <div class="shead center reveal">
-      <span class="eyebrow">Slik får du mest ut av pakka</span>
-      <h2 class="h-lg" id="sHead">Start mykt, jobb deg oppover</h2>
-    </div>
-    <div class="steps" id="steps">
-      <div class="stepc reveal"><span class="n">1</span><b>Begynn med det flettede</b><p>Braided lamb og bøffel er de mildeste i pakka og passer godt de første dagene. Fint også for hunder som har lett for å sluke store biter.</p></div>
-      <div class="stepc reveal"><span class="n">2</span><b>Bytt mellom tyggene</b><p>Fem råvarer og fem teksturer gjør at du kan variere fra dag til dag, i stedet for å gi det samme tygget hver kveld.</p></div>
-      <div class="stepc reveal"><span class="n">3</span><b>Spar de harde til de store øktene</b><p>Okseplater og kamelgumlere er de hardeste og varer lengst. Gi dem når hunden trenger noe å holde på med en god stund.</p></div>
-    </div>
-    <div class="safety reveal"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span id="safety"><b>Viktig:</b> Hold alltid oppsyn med hunden når godbiter/tyggeprodukter gis. Sørg for å alltid ha rent vann tilgjengelig.</span></div>
   </div>
 </section>
 
@@ -574,6 +537,28 @@ footer a{text-decoration:underline;text-underline-offset:3px}
       <div class="rev reveal"><span class="stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg></span><q>Varer lenge, selv for stor hund, og brytes ikke i store biter. Favoritt hos oss.</q><div class="who"><b>Mari</b><span class="ver"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Verifisert kjøp</span></div><span class="prod">Braided bøffel</span></div>
       <div class="rev reveal"><span class="stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg></span><q>Hundene elsker dem, og de varer en stund :) Kan ikke skryte av at de lukter så godt. Men vi overlever det haha.</q><div class="who"><b>Nora</b><span class="ver"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Verifisert kjøp</span></div><span class="prod">Okseplater</span></div>
     </div>
+    <div class="center"><button type="button" class="morebtn" id="moreRev">Vis flere omtaler</button></div>
+  </div>
+</section>
+
+<!-- ================= TYGGESTIGEN ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="shead center reveal">
+      <span class="eyebrow">Tyggestigen</span>
+      <h2 class="h-lg" id="lHead">Fra middels til ekstra hard, med alle tall på bordet</h2>
+      <p class="lede">Vi viser deg lukt og fett også, ikke bare det som ser bra ut. Da vet du hva du gir hunden.</p>
+    </div>
+    <div class="ladder" id="ladder">
+      <div class="rung hdrrow"><span></span><span>Tygg</span><span>Tyggemotstand</span><span>Protein</span><span>Fett</span><span>Lukt</span></div>
+      <div class="rung reveal"><img src="img/lam.jpg" alt="Braided lamb" loading="lazy"><div class="nm"><b>Braided lamb</b><span>100 % lam · 13–17 cm</span></div><div class="mt"><div class="meter"><i class="f"></i><i class="f"></i><i></i><i></i></div><div class="mlbl">Middels</div></div><div class="kv pr"><small>Protein</small><b>67,4 %</b></div><div class="kv ft"><small>Fett</small><b>24,7 %</b></div><div class="kv lk"><small>Lukt</small><b>Lite</b></div></div>
+      <div class="rung reveal"><img src="img/boffel.jpg" alt="Braided bøffel" loading="lazy"><div class="nm"><b>Braided bøffel</b><span>100 % bøffelskinn · 13–16 cm</span></div><div class="mt"><div class="meter"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div><div class="mlbl">Hard</div></div><div class="kv pr"><small>Protein</small><b>80 %</b></div><div class="kv ft"><small>Fett</small><b>1 %</b></div><div class="kv lk"><small>Lukt</small><b>Lite</b></div></div>
+      <div class="rung reveal"><img src="img/pannelapp.jpg" alt="Storfe pannelapp" loading="lazy"><div class="nm"><b>Storfe pannelapp</b><span>100 % storfe · 12–18 cm</span></div><div class="mt"><div class="meter"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div><div class="mlbl">Hard</div></div><div class="kv pr"><small>Protein</small><b>92,6 %</b></div><div class="kv ft"><small>Fett</small><b>6,0 %</b></div><div class="kv lk"><small>Lukt</small><b>Middels</b></div></div>
+      <div class="rung reveal"><img src="img/kamel.jpg" alt="Kamelgumlere" loading="lazy"><div class="nm"><b>Kamelgumlere</b><span>100 % kamel</span></div><div class="mt"><div class="meter"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div><div class="mlbl">Svært hard</div></div><div class="kv pr"><small>Protein</small><b>88 %</b></div><div class="kv ft"><small>Fett</small><b>2,9 %</b></div><div class="kv lk"><small>Lukt</small><b>Noe*</b></div></div>
+      <div class="rung reveal"><img src="img/okseplater.jpg" alt="Okseplater" loading="lazy"><div class="nm"><b>Okseplater uten pels</b><span>Tørket oksehud · 10–25 cm</span></div><div class="mt"><div class="meter x"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div><div class="mlbl">Ekstra hard</div></div><div class="kv pr"><small>Protein</small><b>91 %</b></div><div class="kv ft"><small>Fett</small><b>6,0 %</b></div><div class="kv lk"><small>Lukt</small><b>Mye</b></div></div>
+    </div>
+    <p class="ladnote" id="lNote">Braided lamb er den mildeste i pakka og har mest fett. Braided bøffel er det motsatte: 1 % fett. *Lukt på kamelgumlere er ikke oppgitt av produsenten. En kunde skriver at «det lukter endel av de mens de spises». Alle tygg er naturprodukter, så form, farge og størrelse varierer.</p>
+    <div class="safety"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span id="safety"><b>Viktig:</b> Hold alltid oppsyn med hunden når godbiter/tyggeprodukter gis. Sørg for å alltid ha rent vann tilgjengelig.</span></div>
   </div>
 </section>
 
@@ -590,25 +575,6 @@ footer a{text-decoration:underline;text-underline-offset:3px}
       <div class="cmpc reveal" data-card="m"><h3>Medium</h3><div class="pr">679 kr<s>806 kr</s></div><div class="sv">Spar 127 kr</div><ul><li>Kyllinghals 300 g</li><li>Storfe luftrør 30 cm</li><li>Storfehale 250 g</li><li>Bøffelskinn 250 g</li></ul><a class="go" href="#kjop" data-pick="m">Velg Medium</a></div>
       <div class="cmpc win reveal" data-card="l"><span class="tag">Størst rabatt</span><h3>Large</h3><div class="pr">999 kr<s>1 545 kr</s></div><div class="sv">Spar 546 kr (−35 %)</div><ul><li>Okseplater 500 g</li><li>Kamelgumlere 500 g</li><li>Braided lamb 250 g</li><li>Storfe pannelapp 250 g</li><li>Braided bøffel 250 g</li></ul><a class="go" href="#kjop" data-pick="l">Velg Large</a></div>
       <div class="cmpc off reveal"><h3>XL</h3><div class="pr">1 999 kr<s>2 973 kr</s></div><div class="sv" style="color:var(--orange)">Utsolgt akkurat nå</div><ul><li>Tørrfisk av brosme 1,3 kg (2 stk)</li><li>Bøffelskinn 500 g</li><li>Okseplater med pels 500 g</li><li>Okseplater uten pels 1 kg</li><li>Bøffelchips 500 g</li></ul><a class="go" href="https://www.qualipet.no/produkt/tyggepakke-xl/">Utsolgt</a></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= OM QUALIPET ================= -->
-<section class="section" style="padding-top:0">
-  <div class="wrap">
-    <div class="about reveal">
-      <div class="img" role="img" aria-label="Samojed på fjellsti"></div>
-      <div class="tx">
-        <span class="eyebrow">Hvorfor QualiPet</span>
-        <h2 class="h-lg">Vi selger ikke alt. Vi selger det vi går gode for.</h2>
-        <p>QualiPet er en nisjebutikk på Ullevål i Oslo. Vi fokuserer på sunne, rene og trygge godbiter uten unødvendige tilsetningsstoffer.</p>
-        <ul>
-          <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Én råvare per tygg, ingen kunstige tilsetningsstoffer</li>
-          <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Et nøye gjennomtenkt utvalg, ikke alt til alle</li>
-          <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Leveringstid 1–5 dager, fri frakt over 599 kr</li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
@@ -734,9 +700,9 @@ footer a{text-decoration:underline;text-underline-offset:3px}
       endLede:'Kyllinghals, luftrør, storfehale og bøffelskinn, 127 kr billigere enn om du kjøper dem enkeltvis. Fri frakt og levering 1–5 dager.',
       items:[
         {n:'Storfehale',w:'250 g',p:329,img:'img/storfehale.jpg',d:'Frysetørket, 100 % oksehale. Seig og variert struktur med bein, brusk og muskelvev.',cap:'seig og variert, 100 % oksehale',sub:'Frysetørket · 100 % storfe',lv:0,hl:'Seig og variert',pr:'–',ft:'–',lk:'–'},
-        {n:'Kyllinghals',w:'300 g',p:199,img:'img/kyllinghals.jpg',d:'Lufttørket, 100 % kyllinghals. 52 % protein.',cap:'lufttørket, 52 % protein',sub:'Lufttørket · 100 % kylling',lv:0,hl:'Ikke oppgitt',pr:'52 %',ft:'21,3 %',lk:'–'},
+        {n:'Kyllinghals',w:'300 g',p:199,img:'img/kyllinghals.jpg',d:'Lufttørket, 100 % kyllinghals. 52 % protein.',cap:'lufttørket, 52 % protein',sub:'Lufttørket · 100 % kylling',lv:0,hl:'Hardhet ikke oppgitt',pr:'52 %',ft:'21,3 %',lk:'–'},
         {n:'Bøffelskinn',w:'250 g',p:199,img:'img/boffelskinn.jpg',d:'Magert og hardt tygg av 100 % vannbøffel. Lite lukt, lang varighet.',cap:'hardt, 1 % fett, lite lukt',sub:'100 % vannbøffel · 10–13 cm',lv:3,hl:'Hard',pr:'80 %',ft:'1 %',lk:'Lite'},
-        {n:'Storfe luftrør',w:'30 cm',p:79,img:'img/luftror.jpg',d:'100 % storfe luftrør fra Tyskland. Kan fylles med våtfôr, paté og lignende.',cap:'kan fylles med våtfôr eller paté',sub:'100 % storfe · 30 cm',lv:0,hl:'Ikke oppgitt',pr:'59,7 %',ft:'26,6 %',lk:'–'}
+        {n:'Storfe luftrør',w:'30 cm',p:79,img:'img/luftror.jpg',d:'100 % storfe luftrør fra Tyskland. Kan fylles med våtfôr, paté og lignende.',cap:'kan fylles med våtfôr eller paté',sub:'100 % storfe · 30 cm',lv:0,hl:'Hardhet ikke oppgitt',pr:'59,7 %',ft:'26,6 %',lk:'–'}
       ],
       ladderOrder:[1,3,0,2],
       lHead:'Fire teksturer, med alle tall på bordet',
@@ -787,8 +753,8 @@ footer a{text-decoration:underline;text-underline-offset:3px}
       endLede:'Lam, bøffel og kanin i 100 g-poser, 117 kr billigere enn om du kjøper dem enkeltvis. Levering 1–5 dager.',
       items:[
         {n:'Braided lamb',w:'100 g',p:149,img:'img/lam.jpg',d:'Skånsomt tørket og flettet. Ujevnhetene bidrar til å rense tennene.',cap:'flettet, middels hard',sub:'100 % lam · 13–17 cm',lv:2,hl:'Middels',pr:'67,4 %',ft:'24,7 %',lk:'Lite'},
-        {n:'Kaninører med pels',w:'100 g',p:99,img:'img/kaninorer.jpg',d:'Lufttørket, uten kunstige farger eller konserveringsmidler. 66 % protein.',cap:'lufttørket, 66 % protein',sub:'Lufttørket · 100 % kanin',lv:0,hl:'Ikke oppgitt',pr:'66,3 %',ft:'22,7 %',lk:'–'},
-        {n:'Kaninører uten pels',w:'100 g',p:99,img:'img/kaninorer-up.jpg',d:'100 % europeisk kanin, monoprotein. Passer i utgangspunktet for valper fra 12 uker.',cap:'valper fra 12 uker',sub:'Monoprotein · 100 % kanin',lv:0,hl:'Ikke oppgitt',pr:'51,6 %',ft:'32,3 %',lk:'–'},
+        {n:'Kaninører med pels',w:'100 g',p:99,img:'img/kaninorer.jpg',d:'Lufttørket, uten kunstige farger eller konserveringsmidler. 66 % protein.',cap:'lufttørket, 66 % protein',sub:'Lufttørket · 100 % kanin',lv:0,hl:'Hardhet ikke oppgitt',pr:'66,3 %',ft:'22,7 %',lk:'–'},
+        {n:'Kaninører uten pels',w:'100 g',p:99,img:'img/kaninorer-up.jpg',d:'100 % europeisk kanin, monoprotein. Passer i utgangspunktet for valper fra 12 uker.',cap:'valper fra 12 uker',sub:'Monoprotein · 100 % kanin',lv:0,hl:'Hardhet ikke oppgitt',pr:'51,6 %',ft:'32,3 %',lk:'–'},
         {n:'Braided bøffel',w:'100 g',p:99,img:'img/boffel.jpg',d:'100 % bøffelskinn. Lite fett, lite lukt, lang tyggemoro.',cap:'1 % fett, lite lukt',sub:'100 % bøffelskinn · 13–16 cm',lv:3,hl:'Hard',pr:'80 %',ft:'1 %',lk:'Lite'}
       ],
       ladderOrder:[1,2,0,3],
@@ -945,9 +911,6 @@ footer a{text-decoration:underline;text-underline-offset:3px}
     $('mNow').textContent=kr(p.price);$('mWas').textContent=kr(p.was);$('mPct').textContent=pct;
     $('pSave').innerHTML='Du sparer '+kr(save)+' <span>mot å kjøpe tyggene enkeltvis</span>';
     $('buySub').textContent=kr(p.price)+(p.price>=599?' · fri frakt':'');
-    var h='<div class="lbl" style="margin:0 0 8px">I pakka</div><ul>';
-    p.items.forEach(function(it){h+='<li>'+it.n+' '+it.w+' <span>'+kr(it.p)+'</span></li>'});
-    $('inPack').innerHTML=h+'</ul>';
     if(hostActive()){
       $('hPrice').textContent=kr(hostPrice(p.price));
       $('hNudge').textContent=p.price>=1000?'Du får 15 % på hele kurven.':'Handler du for 1 000 kr eller mer, blir det 15 % på hele kurven.';
@@ -962,7 +925,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
     var p=PACKS[cur];
     renderBuy(p);
     set('hEyebrow',p.eyebrow);set('crumb','Tyggepakke '+p.name);set('hTitle',p.title);set('hLede',p.lede);
-    renderGallery(p);renderPains(p);renderStack(p);renderLadder(p);renderSteps(p);renderReviews(p);renderFaq(p);renderEnd(p);
+    renderGallery(p);renderStack(p);renderLadder(p);set('safety',p.safety);renderReviews(p);renderFaq(p);renderEnd(p);
     document.title='Tyggepakke '+p.name+' – '+p.items.length+' naturlige tygg, spar '+kr(p.was-p.price)+' | QualiPet';
     if(!first){
       try{var u=new URL(location.href);u.searchParams.set('pakke',p.key);history.replaceState(null,'',u.toString())}catch(e){}
@@ -985,6 +948,9 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   Array.prototype.forEach.call(document.querySelectorAll('[data-pick]'),function(a){
     a.addEventListener('click',function(){pick(a.getAttribute('data-pick'))});
   });
+
+  /* Vis flere omtaler */
+  $('moreRev').addEventListener('click',function(){$('revs').classList.add('all');this.style.display='none'});
 
   /* Høstsalg: vis og tell ned til 10.10.2026 23:59 */
   if(hostActive()){
