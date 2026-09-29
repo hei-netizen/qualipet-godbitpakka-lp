@@ -416,8 +416,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
         </div>
         <span class="eyebrow" id="hEyebrow">Tyggepakke Large · 1,75 kg</span>
         <h1 id="hTitle">Fem ulike tygg i én pakke. <span class="hl">Du sparer 546&nbsp;kr.</span></h1>
-        <div class="mprice"><b id="mNow">999 kr</b><s id="mWas">1 545 kr</s><span id="mPct">−35 %</span></div>
-        <p class="lede" id="hLede">Fra flettet lam til ekstra harde okseplater: fem tygg med ulik hardhet, så hunden får variasjon og har noe å bryne seg på. 100&nbsp;% naturlig og uten kunstige tilsetningsstoffer.</p>
+        <div class="mprice" style="margin-bottom:20px"><b id="mNow">999 kr</b><s id="mWas">1 545 kr</s><span id="mPct">−35 %</span></div>
       </div>
 
       <div class="pdp-gal">
@@ -924,7 +923,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   function renderAll(first){
     var p=PACKS[cur];
     renderBuy(p);
-    set('hEyebrow',p.eyebrow);set('crumb','Tyggepakke '+p.name);set('hTitle',p.title);set('hLede',p.lede);
+    set('hEyebrow',p.eyebrow);set('crumb','Tyggepakke '+p.name);set('hTitle',p.title);
     renderGallery(p);renderStack(p);renderLadder(p);set('safety',p.safety);renderReviews(p);renderFaq(p);renderEnd(p);
     document.title='Tyggepakke '+p.name+' – '+p.items.length+' naturlige tygg, spar '+kr(p.was-p.price)+' | QualiPet';
     if(!first){
