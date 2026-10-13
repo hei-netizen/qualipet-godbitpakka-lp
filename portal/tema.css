@@ -1,0 +1,67 @@
+/* Kundeportal — dark mode (felles for alle kunder).
+   Lastes inn av StatiCrypt-innpakningen etter dekryptering. --brand-base settes av tema.js
+   fra sidens egen --brand, slik at hver kunde beholder sin farge. */
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0E1110;--paper:#161A18;--ink:#ECEFEC;--muted:#A5ABA6;--faint:#7D837E;
+  --line:#2A302D;--line-soft:#1F2422;--tint:#1B2621;
+  --green:#22D483;--green-text:#4FDC9C;--amber:#F5B451;--amber-bg:#3A2B12;
+  --deep:color-mix(in srgb,var(--brand-base,#11271F) 82%,#fff);
+  --brand:color-mix(in srgb,var(--brand-base,#0E7A48) 40%,#fff);
+  --brand-tint:color-mix(in srgb,var(--brand-base,#0E7A48) 26%,#161A18);
+  --brand-soft:color-mix(in srgb,var(--brand-base,#0E7A48) 45%,#161A18);
+}
+:root[data-theme="dark"] body{background:var(--bg);color:var(--ink)}
+
+/* Logoer er mørke på lys bakgrunn — vis dem som hvite silhuetter */
+:root[data-theme="dark"] header img{filter:brightness(0) invert(1)}
+
+/* Knapper/flater med hvit tekst skal beholde mørk merkefarge */
+:root[data-theme="dark"] .btn{background:var(--ink);color:var(--bg)}
+:root[data-theme="dark"] .band,
+:root[data-theme="dark"] .avatar,
+:root[data-theme="dark"] .crm-h{background:var(--brand-base,var(--deep))}
+:root[data-theme="dark"] .lrow:nth-child(even){background:#131715}
+@media (min-width:641px){
+  :root[data-theme="dark"] .pnav a.on{background:var(--brand-base,var(--deep));color:#fff}
+}
+:root[data-theme="dark"] .fmt button{background:var(--paper);border-color:var(--line);color:var(--ink)}
+:root[data-theme="dark"] .fmt button.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+:root[data-theme="dark"] .invalid{background:#2A1514!important}
+:root[data-theme="dark"] .vidrow video{border-color:var(--line)}
+
+/* Mobil bunnmeny (hvit, halvgjennomsiktig i lys modus) */
+:root[data-theme="dark"] [style*="rgba(255,255,255,.96)"],
+:root[data-theme="dark"] .pnav{background:rgba(22,26,24,.96)}
+@media (max-width:640px){
+  :root[data-theme="dark"] .pnav{background:rgba(22,26,24,.96)!important}
+}
+
+/* Skjemafelt */
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] select{background:var(--paper);color:var(--ink);border-color:var(--line)}
+:root[data-theme="dark"] ::placeholder{color:var(--faint)}
+
+/* Små lyse statuspiller (Leads) — dempet mørk variant */
+:root[data-theme="dark"] .lrow .venter,
+:root[data-theme="dark"] .lrow .kilde.annet{background:#262B29;color:#B8BDB9}
+:root[data-theme="dark"] .lrow .venter.sent{background:#3A1A1A;color:#FCA5A5}
+:root[data-theme="dark"] .crm-demo,
+:root[data-theme="dark"] .crm-reserve{background:#3A2B12;color:#F5C97A}
+
+/* Inline-stilte hvite flater */
+:root[data-theme="dark"] [style*="background:#fff"],
+:root[data-theme="dark"] [style*="background:#FFF"],
+:root[data-theme="dark"] [style*="background: #fff"]{background:var(--paper)!important}
+
+/* Bryter i headeren */
+.tema-knapp{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--muted);cursor:pointer;padding:0;transition:color .15s,border-color .15s,transform .15s}
+.tema-knapp:hover{color:var(--ink);border-color:var(--faint)}
+.tema-knapp:active{transform:scale(.94)}
+.tema-knapp svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tema-knapp .sol{display:none}
+:root[data-theme="dark"] .tema-knapp .sol{display:block}
+:root[data-theme="dark"] .tema-knapp .mane{display:none}
+.tema-hoyre{display:flex;align-items:center;gap:14px}
+.tema-knapp.tema-flytende{position:fixed;top:14px;right:14px;z-index:60}

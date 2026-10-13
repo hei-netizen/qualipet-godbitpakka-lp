@@ -633,7 +633,7 @@ function init(staticryptConfig, templateConfig) {
         if (!result.success) {
             return false;
         }
-        const plainHTML = result.decoded;
+        const plainHTML = result.decoded.replace(/<\/head>/i, '<link rel="stylesheet" href="/portal/tema.css?v=1"><script src="/portal/tema.js?v=1"><\/script><\/head>');
 
         // if the user configured a callback call it, otherwise just replace the whole HTML
         if (typeof replaceHtmlCallback === "function") {
