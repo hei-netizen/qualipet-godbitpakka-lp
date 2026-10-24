@@ -326,6 +326,8 @@ async function last(session){$('logginn').hidden=true;$('laster').hidden=false;
  document.open();document.write(data.html);document.close()}
 /* Passord-bro: samme nøkkel som den gamle portalen (StatiCrypt) lagrer i nettleseren */
 const NOKKEL='staticrypt_passphrase';
+/* Delelenker fra den gamle portalen (#staticrypt_pwd=<hash>&remember_me) virker også her */
+{const d=new URLSearchParams(location.hash.slice(1)).get('staticrypt_pwd');if(d){try{localStorage.setItem(NOKKEL,d)}catch(e){}history.replaceState(null,'',location.pathname+location.search)}}
 async function pbkdf2(pw,iter,alg){const e=new TextEncoder(),k=await crypto.subtle.importKey('raw',e.encode(pw),'PBKDF2',false,['deriveBits']);
  const b=await crypto.subtle.deriveBits({name:'PBKDF2',hash:alg,iterations:iter,salt:e.encode(SALT)},k,256);return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
 async function hashPassord(pw){return pbkdf2(await pbkdf2(await pbkdf2(pw,1000,'SHA-1'),14000,'SHA-256'),585000,'SHA-256')}
