@@ -282,7 +282,7 @@ button:active,.copy:active,.btn:active,.tile:active{transform:scale(.97)}
 .adminlinje{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--tint);border-radius:var(--r,14px);padding:12px 16px;margin:18px 0 0;font-size:14px}
 .adminlinje a{margin-left:auto}.skjult-chip{background:#fde8e4;color:#8c2f1f}
 </style>
-</head><body>
+<style id="fmt-toggle">.fmt{display:flex;gap:6px;padding:10px 12px 0}.fmt button{font:inherit;font-size:12px;font-weight:600;border:1px solid var(--line,#DDE3EA);background:#fff;color:inherit;border-radius:999px;padding:5px 11px;cursor:pointer}.fmt button.on{background:#0E1C2E;color:#fff;border-color:#0E1C2E}</style><style id="zoom">.ad img{cursor:zoom-in}.zoom{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;padding:16px}.zoom img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px}.zoom button{position:absolute;top:max(12px,env(safe-area-inset-top));right:12px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:20px;cursor:pointer}</style></head><body>
 <header>
   <div class="wrap">
     <div class="logos">
@@ -321,7 +321,7 @@ button:active,.copy:active,.btn:active,.tile:active{transform:scale(.97)}
 <link rel="preconnect" href="https://wzgjpwzyazmchipikotp.supabase.co" crossorigin>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
-(()=>{const SB=supabase.createClient('https://wzgjpwzyazmchipikotp.supabase.co','sb_publishable_Q6iWDRC3wtLHEx5gOmQ22w_lIZ45GDX'),SLUG='qualipet',SALT='dcbf84364bfa372d90002c44fee7ea30',BRO='https://wzgjpwzyazmchipikotp.supabase.co/functions/v1/portal-innlogging',BEDRIFT='QualiPet AS',HOOK='https://hook.eu1.make.com/1arekwfeky6chrxvuop8iiuwwf0gi5bg';
+(()=>{const SB=supabase.createClient('https://wzgjpwzyazmchipikotp.supabase.co','sb_publishable_Q6iWDRC3wtLHEx5gOmQ22w_lIZ45GDX'),SLUG='qualipet',SALT='dcbf84364bfa372d90002c44fee7ea30',BRO='https://wzgjpwzyazmchipikotp.supabase.co/functions/v1/portal-innlogging',BEDRIFT='QualiPet AS',HOOK='https://hook.eu1.make.com/1arekwfeky6chrxvuop8iiuwwf0gi5bg',NI_SEKSTEN=false;
 const $=i=>document.getElementById(i);
 const esc=s=>String(s??'').replace(/[&<>"]/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[x]));
 let ads=[],url={},admin=false;const hjem=new Map();
@@ -334,8 +334,12 @@ function kort(a){const el=document.createElement(a.type==='video'?'div':'figure'
  if(a.type==='video'){el.className='vidrow ad';el.style.cssText='border:0;background:none';
   const tekst=[a.beskrivelse,...lenker(a)].filter(Boolean).map((t,i)=>i===0&&a.beskrivelse?esc(t):t).join(' · ');
   el.innerHTML='<video controls playsinline preload="none" poster="'+esc(url[a.poster]||'')+'" src="'+esc(url[a.fil_sti])+'"></video><div><div class="ad-meta" style="padding:0 0 4px"><h3 style="margin:0">'+tittel(esc(a.navn))+'</h3><span class="chip">Forslag</span>'+skjult+'</div>'+(tekst?'<p style="margin:8px 0 0;color:var(--muted);font-size:15px">'+tekst+'</p>':'')+KNAPPER.replace('class="ad-kommentar"','class="ad-kommentar" style="margin:10px 0 0"').replace('class="ad-act"','class="ad-act" style="padding:8px 0 0"').replace('class="ad-endre"','class="ad-endre" style="padding:8px 0 0"')+'</div>';
- }else{el.className='ad';el.style.margin='0';const l=lenker(a);
-  el.innerHTML='<img src="'+esc(url[a.fil_sti])+'" alt="'+esc(a.navn.replace(/\s*\(ny versjon\)$/,''))+'" loading="lazy"><div class="ad-meta"><b>'+tittel(esc(a.navn),true)+'</b><span class="chip">Forslag</span>'+skjult+'</div>'+(a.beskrivelse?'<p style="margin:0 14px 4px;font-size:13px;color:var(--muted)">'+esc(a.beskrivelse)+'</p>':'')+(l.length?'<p style="margin:0 14px 4px;font-size:13px">'+l.join(' · ')+'</p>':'')+KNAPPER}
+ }else{el.className='ad';el.style.margin='0';
+  const alle=[a.fil_sti,...a.filer].filter(Boolean),sq=alle.find(f=>/_1x1\./.test(f)),hoy=alle.find(f=>/_9x16\./.test(f)),bytt=sq&&hoy;
+  const forst=bytt?(NI_SEKSTEN?hoy:sq):a.fil_sti,l=bytt?lenker({...a,filer:a.filer.filter(f=>f!==sq&&f!==hoy)}):lenker(a);
+  const fmtk=bytt?'<div class="fmt">'+(NI_SEKSTEN?'<button type="button" class="on" data-f="'+esc(hoy)+'">9:16 Story</button><button type="button" data-f="'+esc(sq)+'">1:1 Feed</button>':'<button type="button" class="on" data-f="'+esc(sq)+'">1:1 Feed</button><button type="button" data-f="'+esc(hoy)+'">9:16 Story</button>')+'</div>':'';
+  el.innerHTML='<img src="'+esc(url[forst])+'" alt="'+esc(a.navn.replace(/\s*\(ny versjon\)$/,''))+'" loading="lazy">'+fmtk+'<div class="ad-meta"><b>'+tittel(esc(a.navn),true)+'</b><span class="chip">Forslag</span>'+skjult+'</div>'+(a.beskrivelse?'<p style="margin:0 14px 4px;font-size:13px;color:var(--muted)">'+esc(a.beskrivelse)+'</p>':'')+(l.length?'<p style="margin:0 14px 4px;font-size:13px">'+l.join(' · ')+'</p>':'')+KNAPPER;
+  el.querySelectorAll('.fmt button').forEach(k=>k.onclick=()=>{el.querySelector('img').src=url[k.dataset.f];el.querySelectorAll('.fmt button').forEach(x=>x.classList.toggle('on',x===k))})}
  const f=el.querySelector('.ad-endre'),t=f.querySelector('textarea');
  el.querySelector('.ok').onclick=()=>{f.hidden=true;lagre(a,'godkjent','')};
  el.querySelector('.nei').onclick=()=>{f.hidden=!f.hidden;if(!f.hidden){t.value=a.kommentar||'';t.focus()}};
@@ -346,7 +350,7 @@ function plasser(a,el){const c=el.querySelector('.chip'),k=el.querySelector('.ad
  else if(a.status==='ikke_godkjent'){c.textContent='Ikke godkjent';c.className='chip';act.hidden=false;k.hidden=false;k.innerHTML='<b>Ønsket endring:</b> '+esc(a.kommentar);nei.textContent='Endre ønske';$('g-nei').appendChild(el)}
  else{c.textContent='Forslag';c.className='chip';act.hidden=false;k.hidden=true;nei.textContent='Ikke godkjenn';hjem.get(a.id).appendChild(el)}
  el.classList.toggle('bred',el.classList.contains('vidrow')&&el.parentNode!==hjem.get(a.id))}
-function tell(){document.querySelectorAll('#seksjoner section').forEach(s=>{s.hidden=!s.querySelector('.ad');s.querySelectorAll('[data-del]').forEach(d=>{const g=d.nextElementSibling;d.hidden=g.hidden=!g.children.length})});
+function tell(){document.querySelectorAll('#seksjoner section').forEach(s=>{s.hidden=!s.querySelector('.ad');s.querySelectorAll('[data-del]').forEach(d=>{const g=d.nextElementSibling;g.hidden=!g.children.length;d.hidden=g.hidden||d.dataset.dobbel==='1'})});
  $('sec-nei').hidden=!$('g-nei').children.length;$('sec-ok').hidden=!$('g-ok').children.length;
  const b=document.querySelector('.pnav a.on .badge'),n=ads.filter(a=>a.synlig&&a.status==='forslag').length;if(b){b.textContent=n;b.hidden=!n}}
 async function lagre(a,status,kommentar){const forrige={status:a.status,kommentar:a.kommentar};a.status=status;a.kommentar=kommentar||null;plasser(a,document.querySelector('[data-id="'+a.id+'"]'));tell();
@@ -368,8 +372,14 @@ async function last(session){$('logginn').hidden=true;
  ads.forEach(a=>{const n=a.seksjon||'Annonser';if(!sek[n]){const s=document.createElement('section');s.style.paddingTop='20px';
    s.innerHTML='<h2>'+esc(n)+'</h2><h3 data-del style="margin:22px 0 0">Video</h3><div class="g-video"></div><h3 data-del style="margin:26px 0 0">Bildeannonser</h3><div class="adgrid g-bilde"></div>';rot.appendChild(s);sek[n]=s}
   hjem.set(a.id,sek[n].querySelector(a.type==='video'?'.g-video':'.g-bilde'));plasser(a,kort(a))});
+ Object.entries(sek).forEach(([n,x])=>x.querySelectorAll('[data-del]').forEach(d=>{if(d.textContent.trim()===n.trim())d.dataset.dobbel='1'}));
  $('tomt').hidden=ads.some(a=>a.synlig);$('adminlinje').hidden=!admin;$('laster').hidden=true;$('innhold').hidden=false;tell()}
 $('loggut').onclick=async e=>{e.preventDefault();await SB.auth.signOut();try{localStorage.removeItem(NOKKEL)}catch(x){}location.reload()};
+document.addEventListener('click',e=>{const i=e.target.closest('.ad img');if(!i)return;
+ const z=document.createElement('div');z.className='zoom';z.setAttribute('role','dialog');z.setAttribute('aria-modal','true');
+ z.innerHTML='<img><button type="button" aria-label="Lukk">✕</button>';const b=z.querySelector('img');b.src=i.src;b.alt=i.alt;
+ const tast=k=>{if(k.key==='Escape')lukk()},lukk=()=>{z.remove();document.removeEventListener('keydown',tast);document.body.style.overflow=''};
+ z.onclick=lukk;document.addEventListener('keydown',tast);document.body.style.overflow='hidden';document.body.appendChild(z)});
 /* Passord-bro: samme nøkkel som den gamle portalen (StatiCrypt) lagrer i nettleseren */
 const NOKKEL='staticrypt_passphrase';
 /* Delelenker fra den gamle portalen (#staticrypt_pwd=<hash>&remember_me) virker også her */
