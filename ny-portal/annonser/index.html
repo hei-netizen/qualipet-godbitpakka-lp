@@ -345,10 +345,16 @@ function kort(a){const el=document.createElement(a.type==='video'?'div':'figure'
  el.querySelector('.nei').onclick=()=>{f.hidden=!f.hidden;if(!f.hidden){t.value=a.kommentar||'';t.focus()}};
  f.onsubmit=e=>{e.preventDefault();const v=t.value.trim();if(!v){t.focus();return}f.hidden=true;lagre(a,'ikke_godkjent',v)};
  return el}
+const LIVE={live:['Live nå','#1f7a3d','#e5f4ea'],pauset:['Pauset','#6b6b6b','#eee'],til_godkjenning:['Hos Meta for godkjenning','#8a5a00','#fdf1d8'],avvist_av_meta:['Avvist av Meta','#a12a2a','#fbe4e4',1],ikke_publisert:['Ikke publisert ennå','#6b6b6b','#eee',1]};
+function liveMerke(a,el){el.querySelectorAll('.live-chip').forEach(x=>x.remove());const v=LIVE[a.live_status];
+ if(!v||!a.live_sjekket)return;if((v[3]||a.status!=='godkjent')&&!admin)return;
+ const c=document.createElement('span');c.className='chip live-chip';c.textContent=v[0];c.style.cssText='color:'+v[1]+';background:'+v[2]+';border-color:transparent';
+ c.title='Sjekket mot Meta '+new Date(a.live_sjekket).toLocaleDateString('nb-NO');el.querySelector('.chip').after(c)}
 function plasser(a,el){const c=el.querySelector('.chip'),k=el.querySelector('.ad-kommentar'),act=el.querySelector('.ad-act'),nei=el.querySelector('.nei');
  if(a.status==='godkjent'){c.textContent='Godkjent';c.className='chip ok';act.hidden=true;k.hidden=true;$('g-ok').appendChild(el)}
  else if(a.status==='ikke_godkjent'){c.textContent='Ikke godkjent';c.className='chip';act.hidden=false;k.hidden=false;k.innerHTML='<b>Ønsket endring:</b> '+esc(a.kommentar);nei.textContent='Endre ønske';$('g-nei').appendChild(el)}
  else{c.textContent='Forslag';c.className='chip';act.hidden=false;k.hidden=true;nei.textContent='Ikke godkjenn';hjem.get(a.id).appendChild(el)}
+ liveMerke(a,el);
  el.classList.toggle('bred',el.classList.contains('vidrow')&&el.parentNode!==hjem.get(a.id))}
 function tell(){document.querySelectorAll('#seksjoner section').forEach(s=>{s.hidden=!s.querySelector('.ad');s.querySelectorAll('[data-del]').forEach(d=>{const g=d.nextElementSibling;g.hidden=!g.children.length;d.hidden=g.hidden||d.dataset.dobbel==='1'})});
  $('sec-nei').hidden=!$('g-nei').children.length;$('sec-ok').hidden=!$('g-ok').children.length;
